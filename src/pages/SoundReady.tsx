@@ -79,7 +79,7 @@ export default function SoundReady() {
     }
   };
 
-  const logoUrl = "https://d2xsxph8kpxj0f.cloudfront.net/310519663428183852/FBPv6RSpJr4bth8GwtxoWw/soundready-logo-premium_8887ffa2.png";
+  const logoUrl = "/soundready-logo.png";
 
   return (
     <div className="min-h-screen bg-white">
