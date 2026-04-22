@@ -132,7 +132,7 @@ export default function SoundReady() {
         <div className="max-w-5xl mx-auto text-center relative z-10">
           {/* Logo - Prominently embedded */}
           <div className="mb-8 flex justify-center">
-            <img src={logoUrl} alt="SoundReady English Logo" className="h-96 w-auto drop-shadow-2xl hover:scale-105 transition-transform duration-300" />
+            <img src={logoUrl} alt="SoundReady English Logo" className="h-96 w-auto [filter:drop-shadow(0_20px_25px_rgba(0,0,0,0.15))] hover:scale-105 transition-transform duration-300" />
           </div>
 
           {/* Badge */}
