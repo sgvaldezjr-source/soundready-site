@@ -153,12 +153,12 @@ export const translations = {
     soundReadyCredentialsCertifications: "KET · PET · FCE · IELTS — Cambridge & IELTS exam preparation specialist",
     soundReadyTestimonials: [
       {
-        text: "My daughter's FCE score exceeded what we expected. The lessons were structured, focused, and actually fun.",
-        author: "Parent of FCE student",
+       text: "Sergio is a very seasoned and experienced teacher. Jeffrey's spoken English has improved rapidly under his guidance, and it has completely changed the way the child learns English. Highly recommended.",
+        author: "The Zhang family — parent of Cambridge PET student",
       },
       {
-        text: "I'd tried other platforms before. The difference with Sergio is that he actually understands how exams are marked.",
-        author: "Adult IELTS candidate, Band 7 target",
+       text: "Serge is a very patient teacher. He pointed out my speaking shortcomings very seriously and told me how to improve. He even wrote a very detailed report after class. It's also pleasant to talk to him. He will express based on my basic English vocabulary. Overall, his speaking lessons have taught me a lot.",
+        author: "Lydia Han — IELTS candidate",
       },
     ],
     soundReadyCTAHeading: "Ready to sound ready?",
@@ -375,12 +375,12 @@ export const translations = {
     soundReadyCredentialsCertifications: "KET · PET · FCE · IELTS — 剑桥和 IELTS 考试准备专家",
     soundReadyTestimonials: [
       {
-        text: "我女儿的 FCE 成绩超出了我们的预期。课程结构清晰、重点突出，而且非常有趣。",
-        author: "FCE 学生的家长",
+        text: "Sergio 是一位非常资深且经验丰富的老师。Jeffrey 在他的指导下口语进步神速，彻底改变了孩子学习英语的方式。强烈推荐。",
+        author: "张家 — 剑桥 PET 学生家长",
       },
       {
-        text: "我之前尝试过其他平台。Sergio 与众不同的是，他真正理解考试是如何评分的。",
-        author: "成人 IELTS 候选人，目标 7 分",
+    text: "Serge 是一位非常有耐心的老师。他非常认真地指出我的口语不足之处，并告诉我如何改进。他甚至在课后写了一份非常详细的报告。和他交谈也很愉快，他会根据我的英语词汇水平来表达。总的来说，他的口语课让我受益匪浅。",
+        author: "Lydia Han — IELTS 考生",
       },
     ],
     soundReadyCTAHeading: "准备好发音了吗？",
