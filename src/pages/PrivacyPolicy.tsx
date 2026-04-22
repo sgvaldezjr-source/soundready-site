@@ -53,7 +53,7 @@ export default function PrivacyPolicy() {
     {
       id: "contact",
       title: "8. Contact Us",
-      content: "If you have any questions about this Privacy Policy, please contact us at: support@soundreadyenglish.com or through the contact form on our website."
+      content: "If you have any questions about this Privacy Policy, please contact us at: sergio@sound-ready.com or through the contact form on our website."
     }
   ];
 

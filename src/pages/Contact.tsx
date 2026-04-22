@@ -152,7 +152,7 @@ export default function Contact() {
                   <h3 className="font-semibold text-slate-900 mb-2">
                     {language === "en" ? "Email" : "电子邮件"}
                   </h3>
-                  <p className="text-slate-600">contact@soundreadyenglish.com</p>
+                  <p className="text-slate-600">sergio@sound-ready.com</p>
                 </div>
               </div>
             </div>

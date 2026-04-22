@@ -73,7 +73,7 @@ export default function TermsOfService() {
     {
       id: "contact",
       title: "12. Contact Information",
-      content: "If you have any questions about these Terms of Service, please contact us at: support@soundreadyenglish.com or through the contact form on our website."
+      content: "If you have any questions about these Terms of Service, please contact us at: sergio@sound-ready.com or through the contact form on our website."
     }
   ];
 
