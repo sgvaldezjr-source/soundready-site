@@ -79,7 +79,7 @@ export default function SoundReady() {
     }
   };
 
-  const logoUrl = "/soundready-logo.png";
+  soundready-logo-transparent.png
 
   return (
     <div className="min-h-screen bg-white">
