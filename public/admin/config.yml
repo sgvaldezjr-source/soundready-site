@@ -1,0 +1,32 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/blog-images"
+public_folder: "/blog-images"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "Sergio" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Teaching Tips"
+          - "App Reviews"
+          - "Comics"
+          - "Student Stories"
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text", hint: "2-3 sentence preview shown on blog list page" }
+      - { label: "Video Embed URL", name: "video", widget: "string", required: false, hint: "YouTube, Vimeo, or Bilibili URL (optional)" }
+      - { label: "Body", name: "body", widget: "markdown" }
