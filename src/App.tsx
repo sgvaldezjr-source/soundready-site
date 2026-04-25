@@ -11,7 +11,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookieConsentBanner from "./components/CookieConsentBanner";
 import Contact from "./pages/Contact";
-
+import BlogList from "./pages/BlogList";
+import BlogPost from "./pages/BlogPost";
+import BlogArchive from "./pages/BlogArchive";
 function Router() {
   return (
     <>
@@ -22,9 +24,13 @@ function Router() {
         <Route path={"/privacy-policy"} component={PrivacyPolicy} />
         <Route path={"/terms-of-service"} component={TermsOfService} />
         <Route path={"/contact"} component={Contact} />
+        <Route path={"/blog"} component={BlogList} />
+        <Route path={"/blog/category/:category"} component={BlogArchive} />
+        <Route path={"/blog/tag/:tag"} component={BlogArchive} />
+        <Route path={"/blog/:slug"} component={BlogPost} />
         <Route path={"/404"} component={NotFound} />
         <Route component={NotFound} />
-      </Switch>
+        </Switch>
     </>
   );
 }
