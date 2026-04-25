@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SiteHeader from "@/components/SiteHeader";
 
 interface Post {
   slug: string;
@@ -32,7 +33,8 @@ export default function BlogList() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto px-4 py-16">
+      <SiteHeader />
+      <div className="max-w-4xl mx-auto px-4 py-16 pt-32">
         <h1
           className="text-4xl md:text-5xl font-serif font-bold mb-12 text-center"
           style={{ color: "#1F3A5F" }}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useRoute, Link } from "wouter";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import SiteHeader from "@/components/SiteHeader";
 
 interface Post {
   slug: string;
@@ -47,7 +48,8 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-white">
-      <article className="max-w-3xl mx-auto px-4 py-16">
+      <SiteHeader />
+      <article className="max-w-3xl mx-auto px-4 py-16 pt-32">
         <Link href="/blog">
           <a className="text-sm mb-8 inline-block" style={{ color: "#D4A537" }}>
             ← Back to blog
