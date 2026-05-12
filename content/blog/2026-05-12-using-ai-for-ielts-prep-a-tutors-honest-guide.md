@@ -10,7 +10,7 @@ tags:
   - chatgpt
   - english
   - dailyenglish
-cover: /blog-images/1.png
+cover: /blog-images/gemini_generated_image_oxkx7eoxkx7eoxkx.png
 summary: A practical, honest guide to using AI tools for IELTS preparation —
   what works, what doesn't, and how to avoid wasting time.
 ---
