@@ -46,56 +46,99 @@ export default function BlogPost() {
     return url;
   };
 
+  const components = {
+    h2: ({ children }: any) => (
+      <h2 style={{ color: "#1F3A5F", fontSize: "1.5rem", fontWeight: "800", marginTop: "2.5rem", marginBottom: "0.75rem", fontFamily: "Georgia, serif" }}>
+        {children}
+      </h2>
+    ),
+    h3: ({ children }: any) => (
+      <h3 style={{ color: "#1F3A5F", fontSize: "1.25rem", fontWeight: "700", marginTop: "2rem", marginBottom: "0.5rem" }}>
+        {children}
+      </h3>
+    ),
+    p: ({ children }: any) => (
+      <p style={{ marginBottom: "1.25rem", lineHeight: "1.8", fontSize: "1.0625rem", color: "#222" }}>
+        {children}
+      </p>
+    ),
+    strong: ({ children }: any) => (
+      <strong style={{ color: "#1F3A5F", fontWeight: "700" }}>{children}</strong>
+    ),
+    blockquote: ({ children }: any) => (
+      <blockquote style={{ borderLeft: "4px solid #D4A537", paddingLeft: "1.25rem", paddingTop: "0.75rem", paddingBottom: "0.75rem", margin: "1.75rem 0", background: "#FAF7F0", fontStyle: "italic", color: "#444" }}>
+        {children}
+      </blockquote>
+    ),
+    ul: ({ children }: any) => (
+      <ul style={{ paddingLeft: "1.5rem", marginBottom: "1.25rem", listStyleType: "disc" }}>
+        {children}
+      </ul>
+    ),
+    ol: ({ children }: any) => (
+      <ol style={{ paddingLeft: "1.5rem", marginBottom: "1.25rem", listStyleType: "decimal" }}>
+        {children}
+      </ol>
+    ),
+    li: ({ children }: any) => (
+      <li style={{ marginBottom: "0.4rem", lineHeight: "1.7", color: "#222" }}>
+        {children}
+      </li>
+    ),
+    a: ({ href, children }: any) => (
+      <a href={href} style={{ color: "#D4A537", fontWeight: "600", textDecoration: "underline" }}>
+        {children}
+      </a>
+    ),
+    hr: () => (
+      <hr style={{ margin: "2.5rem 0", borderColor: "#E5E5E5" }} />
+    ),
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <SiteHeader />
-      <article className="max-w-3xl mx-auto px-4 py-16 pt-32">
+      <article className="max-w-2xl mx-auto px-6 pt-32 pb-24">
         <Link href="/blog">
-          <a className="text-sm mb-8 inline-block" style={{ color: "#D4A537" }}>
+          <a className="text-sm mb-10 inline-block hover:underline" style={{ color: "#D4A537" }}>
             ← Back to blog
           </a>
         </Link>
 
-        <div className="text-sm mb-3" style={{ color: "#D4A537" }}>
-          {post.category} · {new Date(post.date).toLocaleDateString()}
+        <div className="mb-8">
+          <div className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{ color: "#D4A537" }}>
+            {post.category}
+          </div>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5" style={{ color: "#1F3A5F" }}>
+            {post.title}
+          </h1>
+          <div className="flex items-center gap-3 text-sm text-gray-500">
+            <span className="font-medium">{post.author}</span>
+            <span>·</span>
+            <span>{new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+          </div>
         </div>
-        <h1
-          className="text-4xl md:text-5xl font-serif font-bold mb-6"
-          style={{ color: "#1F3A5F" }}
-        >
-          {post.title}
-        </h1>
-        <p className="text-gray-600 mb-8">By {post.author}</p>
 
         {post.cover && (
-          <img
-            src={post.cover}
-            alt=""
-            className="w-full h-auto rounded mb-8"
-          />
+          <img src={post.cover} alt="" className="w-full h-auto rounded-lg mb-10 shadow-sm" />
         )}
 
         {post.video && (
-          <div className="mb-8 aspect-video">
-            <iframe
-              src={getEmbedUrl(post.video) || ""}
-              className="w-full h-full rounded"
-              allowFullScreen
-              title={post.title}
-            />
+          <div className="mb-10 aspect-video">
+            <iframe src={getEmbedUrl(post.video) || ""} className="w-full h-full rounded-lg" allowFullScreen title={post.title} />
           </div>
         )}
 
-        <div className="prose prose-lg max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.body}</ReactMarkdown>
-        </div>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+          {post.body}
+        </ReactMarkdown>
 
         {post.tags && post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t">
+          <div className="flex flex-wrap gap-2 mt-16 pt-8 border-t border-gray-100">
             {post.tags.map((tag) => (
               <Link key={tag} href={`/blog/tag/${tag}`}>
-                <a className="text-sm px-3 py-1 bg-gray-100 rounded hover:bg-gray-200">
-                  #{tag}
+                <a className="text-xs uppercase tracking-wider px-3 py-1.5 bg-gray-50 rounded-full hover:bg-gray-100 text-gray-600">
+                  {tag}
                 </a>
               </Link>
             ))}
