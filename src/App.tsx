@@ -1,3 +1,4 @@
+import Disclaimer from "./pages/Disclaimer";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -14,7 +15,6 @@ import Contact from "./pages/Contact";
 import BlogList from "./pages/BlogList";
 import BlogPost from "./pages/BlogPost";
 import BlogArchive from "./pages/BlogArchive";
-import Disclaimer from "./pages/Disclaimer";
 function Router() {
   return (
     <>
