@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import BlogList from "./pages/BlogList";
 import BlogPost from "./pages/BlogPost";
 import BlogArchive from "./pages/BlogArchive";
+import Disclaimer from "./pages/Disclaimer";
 function Router() {
   return (
     <>
@@ -30,6 +31,7 @@ function Router() {
         <Route path={"/blog/:slug"} component={BlogPost} />
         <Route path={"/404"} component={NotFound} />
         <Route component={NotFound} />
+        <Route path={"/disclaimer"} component={Disclaimer} />
         </Switch>
     </>
   );
