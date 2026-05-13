@@ -404,6 +404,7 @@ const logoUrl = "/soundready-logo-transparent.png";
             </a>
           </div>
           <div className="text-center text-sm text-gray-600">
+            <a href="/disclaimer">Disclaimer</a>
             <p>© 2026 SoundReady English-IELTSTutor.com All rights reserved. Reproduction without permission is prohibited.</p>
           </div>
         </div>
