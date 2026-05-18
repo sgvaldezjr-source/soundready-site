@@ -16,6 +16,9 @@ export default function SiteHeader() {
           <a href="/blog" className="text-sm font-medium" style={{ color: "#666" }}>
             {language === "en" ? "Blog" : "博客"}
           </a>
+          <a href="/app" className="text-sm font-medium" style={{ color: "#D4A537" }}>
+            {language === "en" ? "App" : "应用"}
+          </a>
         </div>
         <div className="flex gap-2 bg-gray-100 rounded-lg p-1">
           <button
