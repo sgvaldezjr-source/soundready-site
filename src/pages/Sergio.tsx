@@ -5,12 +5,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2, Award, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SiteHeader from "@/components/SiteHeader";
 import { translations } from "@/lib/translations";
 import { config } from "@/config";
 import { toast } from "sonner";
 
 export default function Sergio() {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
   const t = (key: string) => {
     const keys = key.split(".");
     let value: any = translations[language as keyof typeof translations];
@@ -191,39 +192,8 @@ export default function Sergio() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header with Language Toggle */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-5xl mx-auto flex items-center justify-between py-4 px-4">
-          <div className="text-lg font-semibold" style={{ color: "#1F3A5F" }}>
-            Your tutor
-          </div>
-          <div className="flex gap-2 bg-gray-100 rounded-lg p-1">
-            <button
-              onClick={() => setLanguage("en")}
-              className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
-                language === "en"
-                  ? "bg-teal-600 text-white"
-                  : "text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              English
-            </button>
-            <button
-              onClick={() => setLanguage("zh")}
-              className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
-                language === "zh"
-                  ? "bg-teal-600 text-white"
-                  : "text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              中文
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Add padding to account for fixed header */}
-      <div className="h-16"></div>
+      <SiteHeader />
+      <div className="h-16" />
 
       {/* Hero Section */}
       <section className="relative py-24 px-4 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">

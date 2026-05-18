@@ -1,8 +1,11 @@
 import { useLanguage } from "../contexts/LanguageContext";
+import SiteHeader from "../components/SiteHeader";
 
 export default function Disclaimer() {
   return (
-    <div className="min-h-screen bg-white py-16 px-6 max-w-3xl mx-auto">
+    <div className="min-h-screen bg-white">
+      <SiteHeader />
+      <div className="max-w-3xl mx-auto pt-24 pb-16 px-6">
       <h1 className="text-3xl font-bold mb-8">Disclaimer</h1>
       <p className="text-gray-700 mb-4">
         The information on this site is for informational purposes only.
@@ -16,6 +19,7 @@ export default function Disclaimer() {
         and{" "}
         <a href="/privacy-policy" className="text-blue-600 underline">Privacy Policy</a>.
       </p>
+      </div>
     </div>
   );
 }

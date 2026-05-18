@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SiteHeader from "@/components/SiteHeader";
 import { Mail, Phone, Clock } from "lucide-react";
 import { config } from "@/config";
 
@@ -100,36 +101,10 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex gap-6">
-            <a href="/" className="text-lg font-semibold text-slate-900 hover:text-teal-600">
-              {language === "en" ? "SoundReady" : "SoundReady"}
-            </a>
-            <a href="/sergio" className="text-lg font-semibold text-slate-900 hover:text-teal-600">
-              {language === "en" ? "Your tutor" : "您的导师"}
-            </a>
-          </div>
-          <div className="flex gap-2">
-            <button
-              onClick={() => window.location.href = "/?lang=en"}
-              className={`px-3 py-1 rounded ${language === "en" ? "bg-teal-600 text-white" : "bg-slate-200"}`}
-            >
-              English
-            </button>
-            <button
-              onClick={() => window.location.href = "/?lang=zh"}
-              className={`px-3 py-1 rounded ${language === "zh" ? "bg-teal-600 text-white" : "bg-slate-200"}`}
-            >
-              中文
-            </button>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-12 pt-24">
         <div className="max-w-4xl mx-auto">
           {/* Page Title */}
           <div className="mb-12">

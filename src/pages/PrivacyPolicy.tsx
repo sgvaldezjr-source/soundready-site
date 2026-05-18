@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SiteHeader from "@/components/SiteHeader";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
@@ -59,29 +60,19 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold" style={{ color: "#1F3A5F" }}>
-              Privacy Policy
-            </h1>
-            <Button
-              variant="outline"
-              onClick={() => navigate("/")}
-              className="text-sm"
-            >
-              ← Back to Home
-            </Button>
-          </div>
-          <p className="text-gray-600 text-sm mt-2">
-            Last updated: April 3, 2026
-          </p>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 py-12">
+      <main className="max-w-4xl mx-auto px-4 pt-24 pb-12">
+        <div className="flex items-center justify-between mb-2">
+          <h1 className="text-3xl font-bold" style={{ color: "#1F3A5F" }}>
+            Privacy Policy
+          </h1>
+          <Button variant="outline" onClick={() => navigate("/")} className="text-sm">
+            ← Back to Home
+          </Button>
+        </div>
+        <p className="text-gray-600 text-sm mb-8">Last updated: April 3, 2026</p>
         <div className="prose prose-lg max-w-none">
           <p className="text-gray-700 mb-8">
             Your privacy is important to us. This Privacy Policy explains how SoundReady English Academy collects, uses, discloses, and safeguards your information when you visit our website and use our services.
