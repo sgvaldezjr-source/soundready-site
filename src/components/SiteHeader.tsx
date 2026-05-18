@@ -16,7 +16,7 @@ export default function SiteHeader() {
           <a href="/blog" className="text-sm font-medium" style={{ color: "#666" }}>
             {language === "en" ? "Blog" : "博客"}
           </a>
-          <a href="/app" className="text-sm font-medium" style={{ color: "#D4A537" }}>
+          <a href="/app" className="text-sm font-medium" style={{ color: "#666" }}>
             {language === "en" ? "App" : "应用"}
           </a>
         </div>
