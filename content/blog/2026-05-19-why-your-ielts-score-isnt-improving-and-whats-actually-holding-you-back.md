@@ -10,7 +10,7 @@ tags:
   - DailyEnglish
   - China
   - LatinAmerica
-cover: https://share.google/VyksNsVEA7Gr5dx9P
+cover: /blog-images/1000024110.jpg
 summary: So you've taken the IELTS more than once and your score hasn't budge.
 ---
 So you've taken the IELTS more than once and your score hasn't budged. And you're probably sitting there thinking, "I just need to put in more hours."
