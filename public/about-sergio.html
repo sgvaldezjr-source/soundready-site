@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sergio | IELTS Specialist & ESL Educator</title>
+  <title>Sergio Valdez | IELTS Educator & ESL Teacher</title>
   
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,20 +29,16 @@
     }
 
     .hero {
-      min-height: 100vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      position: relative;
     }
 
     .hero__left {
       background: #1a2332;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 4rem 3.5rem;
-      position: relative;
-      overflow: hidden;
+      justify-content: center;
+      padding: 3rem 3rem;
     }
 
     .hero__eyebrow {
@@ -51,15 +47,30 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero__photo-name {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero__photo-name img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #b8933a;
+      flex-shrink: 0;
     }
 
     .hero__name {
-      font-size: clamp(3rem, 6vw, 5rem);
+      font-size: 2rem;
       font-weight: 700;
       color: #faf8f4;
-      line-height: 1.05;
-      margin-bottom: 0.5rem;
+      line-height: 1.1;
     }
 
     .hero__name em {
@@ -68,658 +79,22 @@
     }
 
     .hero__title {
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       font-weight: 400;
       color: #a0a8b0;
       letter-spacing: 0.05em;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero__credentials {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.6rem;
     }
 
     .cred-pill {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 400;
-      color: var(--gold-light);
-    }
-
-    .cred-pill::before {
-      content: '';
-      width: 20px;
-      height: 1px;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .hero__right {
-      background: var(--paper);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 3.5rem;
-    }
-
-    .hero__quote {
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      font-weight: 400;
-      line-height: 1.6;
-      color: var(--ink);
-      margin-bottom: 3rem;
-    }
-
-    .hero__quote strong {
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    .stats-row {
-      display: flex;
-      gap: 2.5rem;
-    }
-
-    .stat { display: flex; flex-direction: column; }
-
-    .stat__num {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1;
-    }
-
-    .stat__label {
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--warm-grey);
-      margin-top: 0.3rem;
-    }
-
-    section { padding: 5rem 0; }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 2.5rem;
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-    }
-
-    .section-heading {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 2rem;
-      color: var(--ink);
-    }
-
-    .examiner-section {
-      background: #1a2332;
-      color: var(--paper);
-    }
-
-    .examiner-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .examiner-badge {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border: 1px solid rgba(184,147,58,0.4);
-      padding: 3rem 2rem;
-    }
-
-    .badge-num {
-      font-size: 5rem;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .badge-unit {
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-top: 0.5rem;
-    }
-
-    .badge-label {
-      font-size: 1.1rem;
-      color: var(--paper);
-      margin-top: 1rem;
-      line-height: 1.4;
-    }
-
-    .examiner-content .section-label { color: var(--gold); }
-    .examiner-content .section-heading { color: var(--paper); }
-
-    .examiner-content p {
-      color: rgba(250,248,244,0.85);
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
-
-    .examiner-content p strong {
-      color: var(--gold-light);
-      font-weight: 600;
-    }
-
-    .offer-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
-    }
-
-    .offer-card {
-      background: var(--paper);
-      padding: 2.5rem 2rem;
-      transition: background 0.3s;
-    }
-
-    .offer-card:hover { background: #f0ece4; }
-
-    .offer-icon {
-      font-size: 1.5rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .offer-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      color: var(--ink);
-    }
-
-    .offer-card p {
-      font-size: 0.9rem;
-      color: var(--warm-grey);
-      line-height: 1.7;
-    }
-
-    .results-section { background: #f0ece4; }
-
-    .results-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .score-visual {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .score-bar-group { display: flex; flex-direction: column; gap: 0.4rem; }
-
-    .score-bar-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      color: var(--warm-grey);
-      text-transform: uppercase;
-    }
-
-    .score-bar-label span:last-child {
-      color: var(--gold);
-    }
-
-    .score-track {
-      height: 4px;
-      background: var(--rule);
-      position: relative;
-      overflow: visible;
-    }
-
-    .score-fill {
-      height: 100%;
-      background: var(--ink);
-      position: relative;
-    }
-
-    .score-fill.highlight { background: var(--gold); }
-
-    .score-dot {
-      position: absolute;
-      right: -4px;
-      top: -4px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: inherit;
-      border: 2px solid #f0ece4;
-    }
-
-    .results-text p {
-      font-size: 1rem;
-      color: var(--warm-grey);
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
-
-    .results-text p strong {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    .highlight-box {
-      border-left: 3px solid var(--gold);
-      padding: 1rem 1.5rem;
-      background: rgba(184,147,58,0.08);
-      margin-top: 1.5rem;
-    }
-
-    .highlight-box p {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--ink) !important;
-      margin: 0 !important;
-    }
-
-    .app-section {
-      background: #1e2a3a;
-      color: var(--paper);
-    }
-
-    .app-inner {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .app-content .section-label { color: var(--gold); }
-    .app-content .section-heading { color: var(--paper); }
-
-    .app-content p {
-      color: rgba(250,248,244,0.85);
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
-
-    .app-features {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .app-feature {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .app-feature-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      margin-top: 0.6rem;
-      flex-shrink: 0;
-    }
-
-    .app-feature p {
-      font-size: 0.9rem;
-      margin: 0 !important;
-      color: rgba(250,248,244,0.85) !important;
-    }
-
-    .bg-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .bg-item { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
-
-    .bg-item h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-      color: var(--ink);
-    }
-
-    .bg-item .bg-meta {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-    }
-
-    .bg-item p {
-      font-size: 0.9rem;
-      color: var(--warm-grey);
-      line-height: 1.7;
-    }
-
-    .cta-section {
-      text-align: center;
-      padding: 6rem 2.5rem;
-      background: var(--paper);
-    }
-
-    .cta-section p {
-      font-size: 1rem;
-      color: var(--warm-grey);
-      margin-bottom: 2.5rem;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background: var(--ink);
-      color: var(--paper);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 1.1rem 2.5rem;
-      transition: background 0.25s, color 0.25s;
-    }
-
-    .cta-btn:hover {
-      background: var(--gold);
-      color: var(--ink);
-    }
-
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero__left { padding: 3rem 2rem; min-height: 60vh; }
-      .hero__right { padding: 3rem 2rem; }
-      .examiner-inner, .results-layout, .app-inner, .bg-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .offer-grid { grid-template-columns: 1fr; }
-      .stats-row { gap: 1.5rem; }
-      section { padding: 3.5rem 0; }
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-</head>
-<body>
-
-  <section class="hero">
-    <div class="hero__left">
-     <p class="hero__eyebrow">Available for hire</p>
-    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem;">
-        <img src="photo.jpg" alt="Sergio Valdez" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid #b8933a;flex-shrink:0;"/>
-        <h1 class="hero__name" style="margin-bottom:0;font-size:2.2rem;">Sergio<br><em>Valdez</em></h1>
-      </div>
-        <img src="photo.jpg" alt="Sergio Valdez" style="width:90px;height:90px;border-radius:50%;object-fit:cover;border:2px solid #b8933a;flex-shrink:0;"/>
-        <h1 class="hero__name" style="margin-bottom:0;">Sergio<br><em>Valdez</em></h1>
-      </div>
-      <p class="hero__title">IELTS Specialist · ESL Educator · MEd</p>
-      <div class="hero__credentials">
-        <span class="cred-pill">Former IELTS Examiner — 8 years</span>
-        <span class="cred-pill">IELTS Tutor — 5 years</span>
-        <span class="cred-pill">MEd, Sam Houston State University</span>
-        <span class="cred-pill">DipTESOL Candidate</span>
-        <span class="cred-pill">Founder, SoundReady Ascend</span>
-      </div>
-    </div>
-    <div class="hero__right">
-      <p class="hero__quote">
-        "Thank you for taking the time to review my profile. The details here are intended to complement my CV — giving you a clearer sense of my background, my approach to teaching, and the work I've done beyond the classroom."
-      </p>
-      <div class="stats-row">
-        <div class="stat">
-          <span class="stat__num">8</span>
-          <span class="stat__label">Years examining</span>
-        </div>
-        <div class="stat">
-          <span class="stat__num">5</span>
-          <span class="stat__label">Years tutoring</span>
-        </div>
-        <div class="stat">
-          <span class="stat__num">+1.5</span>
-          <span class="stat__label">Avg. band improvement</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#f0ece4;padding:4rem 0;">
-    <div class="container">
-      <p class="section-label">Teaching philosophy</p>
-      <h2 class="section-heading">How I approach the classroom</h2>
-      <p style="font-size:1rem;color:#4a4540;line-height:1.8;max-width:720px;">My teaching philosophy centres on creating an inclusive, student-centered environment that supports language development through differentiated instruction, meaningful content, and strong scaffolding. I believe that building confidence and autonomy in language learners is essential for long-term academic success — particularly in settings where language demands increase across subject areas. Every student I work with brings a different starting point, and my role is to meet them there.</p>
-    </div>
-  </section>
-
-  <section class="examiner-section">
-    <div class="container">
-      <div class="examiner-inner fade-up">
-        <div class="examiner-badge">
-          <div class="badge-num">8</div>
-          <div class="badge-unit">Years</div>
-          <div class="badge-label">Official IELTS<br>Examiner</div>
-        </div>
-        <div class="examiner-content">
-          <p class="section-label">The examiner advantage</p>
-          <h2 class="section-heading">I know exactly what<br>examiners are looking for.</h2>
-          <p>Having spent <strong>8 years as a certified IELTS examiner</strong>, I have assessed hundreds of candidates across all four skill areas. I know the marking criteria inside out — not from a textbook, but from applying them.</p>
-          <p>This means my students learn how to <strong>think like an examiner</strong>: what distinguishes a Band 6 answer from a Band 7, how fluency is assessed in real time, and where most candidates lose marks unnecessarily.</p>
-          <p>It's a credential that cannot be replicated by training hours alone.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <p class="section-label fade-up">Expertise</p>
-      <h2 class="section-heading fade-up">What I bring to any role</h2>
-      <div class="offer-grid fade-up">
-        <div class="offer-card">
-          <div class="offer-icon">📋</div>
-          <h3>IELTS Instruction</h3>
-          <p>Full exam preparation across all four skills. Deep understanding of band descriptors, task requirements, and examiner expectations — built from years inside the testing room.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-icon">🎤</div>
-          <h3>Pronunciation & Speaking</h3>
-          <p>Research-backed approach to building functional phonetic awareness in adult learners. Founder of SoundReady Ascend, an IELTS tutoring platform built around evidence-based pronunciation development.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-icon">🏫</div>
-          <h3>Classroom ESL Teaching</h3>
-          <p>Currently teaching 60 ESL students at bilingual elementary level. Cambridge exam preparation including KET, PET, and FCE. Materials development and lesson design from scratch.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-icon">📐</div>
-          <h3>Curriculum & Materials Design</h3>
-          <p>Independent designer of all instructional materials — lesson plans, assessments, progress reports, and student-facing content. No reliance on off-the-shelf resources.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-icon">🎓</div>
-          <h3>Academic Credentials</h3>
-          <p>MEd from Sam Houston State University. Currently completing the DipTESOL — a rigorous post-graduate qualification recognised globally by language institutions.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-icon">💻</div>
-          <h3>Ed-Tech & Innovation</h3>
-          <p>Founder of SoundReady Ascend, an IELTS tutoring platform. Integrates AI tools into tutoring workflow. Comfortable with digital platforms, LMS systems, and blended learning models.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="results-section">
-    <div class="container">
-      <div class="results-layout">
-        <div class="fade-up">
-          <p class="section-label">Student outcomes</p>
-          <h2 class="section-heading">Real results,<br>not promises.</h2>
-          <div class="results-text">
-            <p>The majority of students who commit to a structured 3-month programme improve by <strong>at least one full band</strong>. Many go further.</p>
-            <p>Most students arrive at Band 5 — a functional but limited level. Within 3 months, a Band 6 is a realistic and consistent outcome. <strong>Band 7 is achievable</strong> for motivated candidates who engage fully with the programme.</p>
-            <div class="highlight-box">
-              <p>From Band 5 to Band 7 in 3 months — for students who put in the work, it happens.</p>
-            </div>
-          </div>
-        </div>
-        <div class="score-visual fade-up">
-          <p class="section-label" style="margin-bottom:1.5rem;">Typical score progression</p>
-          <div class="score-bar-group">
-            <div class="score-bar-label"><span>Starting point</span><span>Band 5.0</span></div>
-            <div class="score-track"><div class="score-fill" style="width:55%"><div class="score-dot"></div></div></div>
-          </div>
-          <div class="score-bar-group" style="margin-top:1.2rem;">
-            <div class="score-bar-label"><span>Typical outcome (3 months)</span><span>Band 6.0</span></div>
-            <div class="score-track"><div class="score-fill" style="width:72%"><div class="score-dot"></div></div></div>
-          </div>
-          <div class="score-bar-group" style="margin-top:1.2rem;">
-            <div class="score-bar-label"><span>High-effort outcome</span><span>Band 7.0+</span></div>
-            <div class="score-track"><div class="score-fill highlight" style="width:88%"><div class="score-dot"></div></div></div>
-          </div>
-          <p style="font-size:0.78rem;color:var(--warm-grey);margin-top:1.5rem;line-height:1.6;">Based on 5 years of private IELTS tutoring. Results vary by starting level, effort, and study hours.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="app-section">
-    <div class="container">
-      <div class="app-inner fade-up">
-        <div class="app-content">
-          <p class="section-label">Ed-Tech initiative</p>
-          <h2 class="section-heading">Built my own<br>IELTS platform.</h2>
-          <p>SoundReady Ascend is a tutoring website I founded and built, designed specifically for adult IELTS candidates. It focuses on the area most tutors overlook: functional phonetic awareness and spoken fluency — using research-backed methods rather than intuition-based coaching.</p>
-          <p>Building the platform solo — from design and content to deployment — reflects both my technical capability and my belief that the best teaching tools are the ones you create yourself.</p>
-          <div class="app-features">
-            <div class="app-feature"><div class="app-feature-dot"></div><p>Evidence-based phonetic awareness training for adult IELTS candidates</p></div>
-            <div class="app-feature"><div class="app-feature-dot"></div><p>Original content built around examiner-level knowledge of the Speaking band descriptors</p></div>
-            <div class="app-feature"><div class="app-feature-dot"></div><p>Blog and content marketing targeting IELTS candidates globally</p></div>
-            <div class="app-feature"><div class="app-feature-dot"></div><p>Live at sound-ready.com</p></div>
-          </div>
-        </div>
-      <div style="border:1px solid rgba(184,147,58,0.3);overflow:hidden;">
-          <a href="https://app.sound-ready.com" target="_blank" rel="noopener">
-            <img src="dashboard.png" alt="SoundReady Ascend Dashboard" style="width:100%;display:block;cursor:pointer;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'"/>
-          </a>
-          <div style="padding:0.8rem 1rem;background:rgba(184,147,58,0.08);text-align:center;">
-            <a href="https://app.sound-ready.com" target="_blank" rel="noopener" style="font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#b8933a;text-decoration:none;">Launch App → app.sound-ready.com</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <p class="section-label fade-up">Professional background</p>
-      <h2 class="section-heading fade-up">Experience & qualifications</h2>
-      <div class="bg-grid fade-up">
-        <div class="bg-item">
-          <p class="bg-meta">2016 – 2022</p>
-          <h3>Certified IELTS Examiner</h3>
-          <p>Former official examiner for 8 years. Assessment of Speaking and Writing across all candidate levels. Deep applied knowledge of band descriptors.</p>
-        </div>
-        <div class="bg-item">
-          <p class="bg-meta">5 Years</p>
-          <h3>Private IELTS Tutor</h3>
-          <p>One-to-one and small group tutoring for adult candidates. Consistent Band 5→6 outcomes within 3 months. Band 7 outcomes for high-effort candidates.</p>
-        </div>
-        <div class="bg-item">
-          <p class="bg-meta">Current Role</p>
-          <h3>ESL Teacher, Bilingual Elementary School</h3>
-          <p>60 ESL students. Cambridge exam preparation (KET, PET, FCE). Full instructional design responsibility. One teaching assistant.</p>
-        </div>
-        <div class="bg-item">
-          <p class="bg-meta">In Progress</p>
-          <h3>DipTESOL Candidate</h3>
-          <p>Advanced professional qualification in TESOL. Rigorous postgraduate standard, globally recognised by language schools and universities.</p>
-        </div>
-        <div class="bg-item">
-          <p class="bg-meta">MEd</p>
-          <h3>Master of Education</h3>
-          <p>Sam Houston State University. Graduate-level academic foundation in educational theory, pedagogy, and instructional design.</p>
-        </div>
-        <div class="bg-item">
-          <p class="bg-meta">Founder</p>
-          <h3>SoundReady Ascend</h3>
-          <p>IELTS pronunciation tutoring platform. Built independently. Live at sound-ready.com. Ongoing content and product development.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <div class="container">
-      <p class="section-label fade-up">Get in touch</p>
-      <h2 class="section-heading fade-up">Get in touch</h2>
-      <p class="fade-up">I welcome the opportunity to discuss how my background and approach might be a good fit for your school or institution. Please feel free to download my CV or reach out directly.</p>
-      <div class="fade-up" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:sergio@sound-ready.com" class="cta-btn">Contact Sergio</a>
-        <a href="Sergio_G__Valdez__Jr__Professional_Resume-1.pdf" download class="cta-btn" style="background:transparent;color:var(--ink);border:1px solid var(--ink);">Download CV</a>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#f0ece4;padding:5rem 0;">
-    <div class="container">
-      <p class="section-label fade-up">Meet Sergio</p>
-      <h2 class="section-heading fade-up">Hear it from me directly.</h2>
-      <div class="fade-up" style="max-width:720px;margin:0 auto;aspect-ratio:16/9;background:#1a2332;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
-        <div style="width:64px;height:64px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;">
-          <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:20px solid var(--gold);margin-left:4px;"></div>
-        </div>
-        <p style="color:rgba(250,248,244,0.5);font-size:0.9rem;">Video coming soon</p>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
-</body>
-</html>
-<footer style="background:#111111;color:rgba(255,255,255,0.4);text-align:center;padding:1.5rem 2rem;font-size:0.75rem;line-height:1.6;">
-  This site is not affiliated with, endorsed by, or connected to Cambridge Assessment English, the British Council, or IDP Education. IELTS is a registered trademark. All references to Cambridge examinations (KET, PET, FCE) are for descriptive purposes only.
-</footer>
