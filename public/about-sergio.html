@@ -1,207 +1,46 @@
+I can see the mess. The file has broken CSS and leftover quote/stats HTML. Here's the clean version — select all in GitHub and paste:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sergio Valdez | IELTS Educator & ESL Teacher</title>
-  
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink: #111111;
-      --paper: #faf8f4;
-      --gold: #b8933a;
-      --gold-light: #e8d5a0;
-      --warm-grey: #4a4540;
-      --rule: #d4cbbf;
-    }
-
+    :root { --ink: #111111; --paper: #faf8f4; --gold: #b8933a; --gold-light: #e8d5a0; --warm-grey: #4a4540; --rule: #d4cbbf; }
     html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: Helvetica, Arial, sans-serif; font-weight: 400; line-height: 1.7; overflow-x: hidden; }
 
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .hero__left {
-      background: #1a2332;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 3rem 3rem;
-    }
-
-    .hero__eyebrow {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-    }
-
-    .hero__photo-name {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #b8933a;
-      flex-shrink: 0;
-    }
-
-    .hero__name {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #faf8f4;
-      line-height: 1.1;
-    }
-
-    .hero__name em {
-      font-style: normal;
-      color: var(--gold-light);
-    }
-
-    .hero__title {
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: #a0a8b0;
-      letter-spacing: 0.05em;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero__credentials {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .cred-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: var(--gold-light);
-    }
-
-    .cred-pill::before {
-      content: '';
-      width: 16px;
-      height: 1px;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
+    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
+    .hero__left { background: #1a2332; display: flex; flex-direction: column; justify-content: center; padding: 3rem; }
+    .hero__name { font-size: 2.2rem; font-weight: 700; color: #faf8f4; line-height: 1.1; margin-bottom: 0.4rem; }
+    .hero__name em { font-style: normal; color: var(--gold-light); }
+    .hero__title { font-size: 0.85rem; color: #a0a8b0; margin-bottom: 1.5rem; }
+    .hero__credentials { display: flex; flex-direction: column; gap: 0.6rem; }
+    .cred-pill { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; color: var(--gold-light); }
+    .cred-pill::before { content: ''; width: 16px; height: 1px; background: var(--gold); flex-shrink: 0; }
     .hero__right { overflow: hidden; }
-    }
-
-    .<div class="hero__right"> {
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.7;
-      color: var(--warm-grey);
-      margin-bottom: 2rem;
-      font-style: italic;
-    }
-
-    .stats-row { display: flex; gap: 2rem; }
-
-    .stat { display: flex; flex-direction: column; }
-
-    .stat__num {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1;
-    }
-
-    .stat__label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--warm-grey);
-      margin-top: 0.2rem;
-    }
+    .hero__right img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; object-position: center top; display: block; }
 
     section { padding: 4rem 0; }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 2.5rem;
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-heading {
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      color: var(--ink);
-    }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 2.5rem; }
+    .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .section-heading { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: var(--ink); }
 
     .examiner-section { background: #1a2332; color: var(--paper); }
-
-    .examiner-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .examiner-badge {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border: 1px solid rgba(184,147,58,0.4);
-      padding: 2.5rem 2rem;
-    }
-
+    .examiner-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+    .examiner-badge { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1px solid rgba(184,147,58,0.4); padding: 2.5rem 2rem; }
     .badge-num { font-size: 4.5rem; font-weight: 700; color: var(--gold); line-height: 1; }
     .badge-unit { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-top: 0.5rem; }
     .badge-label { font-size: 1rem; color: var(--paper); margin-top: 1rem; line-height: 1.4; }
-
     .examiner-content .section-label { color: var(--gold); }
     .examiner-content .section-heading { color: var(--paper); }
     .examiner-content p { color: rgba(250,248,244,0.85); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
     .examiner-content p strong { color: var(--gold-light); font-weight: 600; }
 
-    .offer-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
-    }
-
+    .offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--rule); border: 1px solid var(--rule); }
     .offer-card { background: var(--paper); padding: 2rem 1.8rem; transition: background 0.3s; }
     .offer-card:hover { background: #f0ece4; }
     .offer-icon { font-size: 1.4rem; margin-bottom: 1rem; }
@@ -209,21 +48,17 @@
     .offer-card p { font-size: 0.88rem; color: var(--warm-grey); line-height: 1.7; }
 
     .results-section { background: #f0ece4; }
-
     .results-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-
     .score-visual { display: flex; flex-direction: column; gap: 1rem; }
     .score-bar-group { display: flex; flex-direction: column; gap: 0.4rem; }
-    .score-bar-label { display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; color: var(--warm-grey); text-transform: uppercase; }
+    .score-bar-label { display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 600; color: var(--warm-grey); text-transform: uppercase; }
     .score-bar-label span:last-child { color: var(--gold); }
     .score-track { height: 4px; background: var(--rule); position: relative; overflow: visible; }
     .score-fill { height: 100%; background: var(--ink); position: relative; }
     .score-fill.highlight { background: var(--gold); }
     .score-dot { position: absolute; right: -4px; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: inherit; border: 2px solid #f0ece4; }
-
     .results-text p { font-size: 0.95rem; color: var(--warm-grey); line-height: 1.8; margin-bottom: 1rem; }
     .results-text p strong { color: var(--ink); font-weight: 600; }
-
     .highlight-box { border-left: 3px solid var(--gold); padding: 1rem 1.5rem; background: rgba(184,147,58,0.08); margin-top: 1.5rem; }
     .highlight-box p { font-size: 0.95rem; font-weight: 600; color: var(--ink) !important; margin: 0 !important; }
 
@@ -245,28 +80,14 @@
 
     .cta-section { text-align: center; padding: 4rem 2.5rem; background: var(--paper); }
     .cta-section p { font-size: 1rem; color: var(--warm-grey); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-
-    .cta-btn {
-      display: inline-block;
-      background: var(--ink);
-      color: var(--paper);
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 1rem 2.2rem;
-      transition: background 0.25s, color 0.25s;
-    }
+    .cta-btn { display: inline-block; background: var(--ink); color: var(--paper); text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 1rem 2.2rem; transition: background 0.25s, color 0.25s; }
     .cta-btn:hover { background: var(--gold); color: var(--ink); }
 
     @media (max-width: 768px) {
       .hero { grid-template-columns: 1fr; }
-      .hero__left { padding: 2.5rem 2rem; }
-      .hero__right { padding: 2.5rem 2rem; }
+      .hero__right { min-height: 300px; }
       .examiner-inner, .results-layout, .app-inner, .bg-grid { grid-template-columns: 1fr; gap: 2rem; }
       .offer-grid { grid-template-columns: 1fr; }
-      .stats-row { gap: 1.5rem; }
       section { padding: 3rem 0; }
     }
 
@@ -278,30 +99,17 @@
 
   <section class="hero">
     <div class="hero__left">
-      
-      <div class="hero__photo-name">
-       <h1 class="hero__name">Sergio<br><em>Valdez</em></h1>
-      </div>
+      <h1 class="hero__name">Sergio<br><em>Valdez</em></h1>
       <p class="hero__title">ESL Teacher · MEd</p>
       <div class="hero__credentials">
         <span class="cred-pill">Former IELTS Examiner — 8 years</span>
-       
         <span class="cred-pill">MEd, Sam Houston State University</span>
         <span class="cred-pill">DipTESOL Candidate</span>
         <span class="cred-pill">Founder, SoundReady Ascend</span>
       </div>
     </div>
-    <div class="hero__right" style="overflow:hidden;min-height:500px;">
-      <img src="photo.jpg" alt="Sergio Valdez" style="width:100%;height:100%;min-height:500px;object-fit:cover;object-position:center top;display:block;"/>
-    </div>
-      <p class="<div class="hero__right">">
-        "Thank you for taking the time to review my profile. The details here are intended to complement my CV — giving you a clearer sense of my background, my approach to teaching, and the work I've done beyond the classroom."
-      </p>
-      <div class="stats-row">
-        <div class="stat"><span class="stat__num">8</span><span class="stat__label">Years examining</span></div>
-        <div class="stat"><span class="stat__num">5</span><span class="stat__label">Years tutoring</span></div>
-        <div class="stat"><span class="stat__num">+1.5</span><span class="stat__label">Avg. band gain</span></div>
-      </div>
+    <div class="hero__right">
+      <img src="photo.jpg" alt="Sergio Valdez"/>
     </div>
   </section>
 
@@ -336,36 +144,12 @@
       <p class="section-label fade-up">Expertise</p>
       <h2 class="section-heading fade-up">What I bring to any role</h2>
       <div class="offer-grid fade-up">
-        <div class="offer-card">
-          <div class="offer-icon">📋</div>
-          <h3>IELTS Instruction</h3>
-          <p>Exam preparation across all four skills, informed by 8 years of examining experience. Students learn how to meet the criteria, not just practise tasks.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-icon">🎤</div>
-          <h3>Phonetic Awareness</h3>
-          <p>Research-backed approach to building functional phonetic awareness in adult learners. Founder of SoundReady Ascend, built around evidence-based pronunciation development.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-icon">🏫</div>
-          <h3>Classroom ESL Teaching</h3>
-          <p>Currently teaching 60 ESL students at bilingual elementary level. Exam preparation support for KET, PET, and FCE levels. Full instructional design from scratch.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-icon">📐</div>
-          <h3>Curriculum & Materials Design</h3>
-          <p>Independent designer of all instructional materials — lesson plans, assessments, progress reports, and student-facing content. No reliance on off-the-shelf resources.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-icon">🎓</div>
-          <h3>Academic Credentials</h3>
-          <p>MEd from Sam Houston State University. Currently completing the DipTESOL — a rigorous postgraduate qualification recognised globally by language institutions.</p>
-        </div>
-        <div class="offer-card">
-          <div class="offer-icon">💻</div>
-          <h3>Ed-Tech & Innovation</h3>
-          <p>Founder of SoundReady Ascend, an IELTS tutoring platform built and deployed independently. Comfortable integrating AI tools, LMS systems, and blended learning models.</p>
-        </div>
+        <div class="offer-card"><div class="offer-icon">📋</div><h3>IELTS Instruction</h3><p>Exam preparation across all four skills, informed by 8 years of examining experience. Students learn how to meet the criteria, not just practise tasks.</p></div>
+        <div class="offer-card"><div class="offer-icon">🎤</div><h3>Phonetic Awareness</h3><p>Research-backed approach to building functional phonetic awareness in adult learners. Founder of SoundReady Ascend, built around evidence-based pronunciation development.</p></div>
+        <div class="offer-card"><div class="offer-icon">🏫</div><h3>Classroom ESL Teaching</h3><p>Currently teaching 60 ESL students at bilingual elementary level. Exam preparation support for KET, PET, and FCE levels. Full instructional design from scratch.</p></div>
+        <div class="offer-card"><div class="offer-icon">📐</div><h3>Curriculum & Materials Design</h3><p>Independent designer of all instructional materials — lesson plans, assessments, progress reports, and student-facing content.</p></div>
+        <div class="offer-card"><div class="offer-icon">🎓</div><h3>Academic Credentials</h3><p>MEd from Sam Houston State University. Currently completing the DipTESOL — a rigorous postgraduate qualification recognised globally by language institutions.</p></div>
+        <div class="offer-card"><div class="offer-icon">💻</div><h3>Ed-Tech & Innovation</h3><p>Founder of SoundReady Ascend, an IELTS tutoring platform built and deployed independently. Comfortable integrating AI tools, LMS systems, and blended learning models.</p></div>
       </div>
     </div>
   </section>
@@ -379,9 +163,7 @@
           <div class="results-text">
             <p>The majority of students who commit to a structured 3-month programme improve by <strong>at least one full band</strong>. Many go further.</p>
             <p>Most students arrive at Band 5. Within 3 months, Band 6 is a realistic and consistent outcome. <strong>Band 7 is achievable</strong> for motivated candidates who engage fully with the programme.</p>
-            <div class="highlight-box">
-              <p>From Band 5 to Band 7 in 3 months — for students who put in the work, it happens.</p>
-            </div>
+            <div class="highlight-box"><p>From Band 5 to Band 7 in 3 months — for students who put in the work, it happens.</p></div>
           </div>
         </div>
         <div class="score-visual fade-up">
@@ -436,36 +218,12 @@
       <p class="section-label fade-up">Professional background</p>
       <h2 class="section-heading fade-up">Experience & qualifications</h2>
       <div class="bg-grid fade-up">
-        <div class="bg-item">
-          <p class="bg-meta">2016 – 2022</p>
-          <h3>IELTS Examiner</h3>
-          <p>Former official examiner for 8 years. Assessment of Speaking and Writing across all candidate levels. Deep applied knowledge of band descriptors.</p>
-        </div>
-        <div class="bg-item">
-          <p class="bg-meta">5 Years</p>
-          <h3>Private IELTS Tutor</h3>
-          <p>One-to-one and small group tutoring for adult candidates. Consistent Band 5→6 outcomes within 3 months. Band 7 outcomes for high-effort candidates.</p>
-        </div>
-        <div class="bg-item">
-          <p class="bg-meta">Current Role</p>
-          <h3>ESL Teacher, Bilingual Elementary School</h3>
-          <p>60 ESL students. Exam preparation support at KET, PET, and FCE levels. Full instructional design responsibility. One teaching assistant.</p>
-        </div>
-        <div class="bg-item">
-          <p class="bg-meta">In Progress</p>
-          <h3>DipTESOL Candidate</h3>
-          <p>Advanced professional qualification in TESOL. Rigorous postgraduate standard, globally recognised by language schools and universities.</p>
-        </div>
-        <div class="bg-item">
-          <p class="bg-meta">MEd</p>
-          <h3>Master of Education</h3>
-          <p>Sam Houston State University. Graduate-level foundation in educational theory, pedagogy, and instructional design.</p>
-        </div>
-        <div class="bg-item">
-          <p class="bg-meta">Founder</p>
-          <h3>SoundReady Ascend</h3>
-          <p>IELTS tutoring platform built independently. Live at sound-ready.com. Ongoing content and product development.</p>
-        </div>
+        <div class="bg-item"><p class="bg-meta">2016 – 2022</p><h3>IELTS Examiner</h3><p>Former official examiner for 8 years. Assessment of Speaking and Writing across all candidate levels. Deep applied knowledge of band descriptors.</p></div>
+        <div class="bg-item"><p class="bg-meta">5 Years</p><h3>Private IELTS Tutor</h3><p>One-to-one and small group tutoring for adult candidates. Consistent Band 5→6 outcomes within 3 months. Band 7 outcomes for high-effort candidates.</p></div>
+        <div class="bg-item"><p class="bg-meta">Current Role</p><h3>ESL Teacher, Bilingual Elementary School</h3><p>60 ESL students. Exam preparation support at KET, PET, and FCE levels. Full instructional design responsibility. One teaching assistant.</p></div>
+        <div class="bg-item"><p class="bg-meta">In Progress</p><h3>DipTESOL Candidate</h3><p>Advanced professional qualification in TESOL. Rigorous postgraduate standard, globally recognised by language schools and universities.</p></div>
+        <div class="bg-item"><p class="bg-meta">MEd</p><h3>Master of Education</h3><p>Sam Houston State University. Graduate-level foundation in educational theory, pedagogy, and instructional design.</p></div>
+        <div class="bg-item"><p class="bg-meta">Founder</p><h3>SoundReady Ascend</h3><p>IELTS tutoring platform built independently. Live at sound-ready.com. Ongoing content and product development.</p></div>
       </div>
     </div>
   </section>
@@ -487,7 +245,7 @@
       <p class="section-label fade-up">Meet Sergio</p>
       <h2 class="section-heading fade-up">Hear it from me directly.</h2>
       <div class="fade-up" style="max-width:720px;margin:0 auto;aspect-ratio:16/9;background:#1a2332;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
-        
+        <div style="width:56px;height:56px;border-radius:50%;border:2px solid #b8933a;display:flex;align-items:center;justify-content:center;">
           <div style="width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:18px solid #b8933a;margin-left:4px;"></div>
         </div>
         <p style="color:rgba(250,248,244,0.5);font-size:0.85rem;">Video coming soon</p>
@@ -497,12 +255,7 @@
 
   <script>
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
@@ -513,3 +266,4 @@
 
 </body>
 </html>
+```
