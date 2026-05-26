@@ -9,7 +9,7 @@ import SiteHeader from "@/components/SiteHeader";
 import { translations } from "@/lib/translations";
 import { config } from "@/config";
 import { toast } from "sonner";
-
+import { Helmet } from 'react-helmet-async';
 export default function SoundReady() {
   const { language } = useLanguage();
   const t = (key: string) => {
@@ -83,7 +83,11 @@ export default function SoundReady() {
 const logoUrl = "/soundready-logo-transparent.png";
 
   return (
-    <div className="min-h-screen bg-white">
+   <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.sound-ready.com/" />
+        <title>IELTS Tutor Online | SoundReady</title>
+      </Helmet>
       <SiteHeader />
       <div className="h-16" />
 
