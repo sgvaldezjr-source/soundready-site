@@ -3,6 +3,7 @@ import SiteHeader from "@/components/SiteHeader";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import { Helmet } from 'react-helmet-async';
 
 export default function TermsOfService() {
   const [, navigate] = useLocation();
@@ -80,6 +81,10 @@ export default function TermsOfService() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.sound-ready.com/terms-of-service" />
+        <title>Terms of Service | SoundReady</title>
+      </Helmet>
       <SiteHeader />
 
       {/* Main Content */}
