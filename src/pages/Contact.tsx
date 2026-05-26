@@ -14,6 +14,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import SiteHeader from "@/components/SiteHeader";
 import { Mail, Phone, Clock } from "lucide-react";
 import { config } from "@/config";
+import { Helmet } from 'react-helmet-async';
 
 export default function Contact() {
   const { language, t } = useLanguage();
@@ -100,7 +101,11 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+  <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.sound-ready.com/contact" />
+        <title>Contact | SoundReady IELTS Tutor</title>
+      </Helmet>
       <SiteHeader />
 
       {/* Main Content */}
