@@ -18,7 +18,7 @@ If you've ever stared at an IELTS Writing Task 2 prompt and felt your mind go bl
 
 Before you write a single word, spend two to three minutes analysing the prompt. IELTS Task 2 questions fall into distinct types: opinion essays, discussion essays, problem-solution essays, and direct question essays. Each type requires a different essay structure, and misreading the question is one of the fastest ways to drop your band score.
 
-Ask yourself: \*How many parts does this question have?\* A prompt like "Discuss both views and give your own opinion" demands three things from you — view A, view B, and your position. If you only address two of them, your Task Response score will suffer regardless of how beautiful your English is.
+Ask yourself: How many parts does this question have? A prompt like "Discuss both views and give your own opinion" demands three things from you — view A, view B, and your position. If you only address two of them, your Task Response score will suffer regardless of how beautiful your English is.
 
 Underline the key instruction words in the prompt. Train yourself to do this on every practice essay so it becomes automatic on test day.
 
