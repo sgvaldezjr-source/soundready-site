@@ -18,11 +18,9 @@ If you've ever stared at an IELTS Writing Task 2 prompt and felt your mind go bl
 
 Before you write a single word, spend two to three minutes analysing the prompt. IELTS Task 2 questions fall into distinct types: opinion essays, discussion essays, problem-solution essays, and direct question essays. Each type requires a different essay structure, and misreading the question is one of the fastest ways to drop your band score.
 
-Ask yourself: \*How many parts does this question have?\* A prompt like "Discuss both views and give your own opinion" demands three things from you — view A, view B, and your position. If you only address two of them, your Task Achievement score will suffer regardless of how beautiful your English is.
+Ask yourself: \*How many parts does this question have?\* A prompt like "Discuss both views and give your own opinion" demands three things from you — view A, view B, and your position. If you only address two of them, your Task Response score will suffer regardless of how beautiful your English is.
 
 Underline the key instruction words in the prompt. Train yourself to do this on every practice essay so it becomes automatic on test day.
-
-
 
 **2. Plan Your Essay Before You Write**
 
@@ -38,8 +36,6 @@ Your plan doesn't need to be elaborate. Jot down:
 
 This structure gives you a clear roadmap and helps you write faster, not slower. Examiners reward coherence — the sense that every paragraph builds logically on the last — and that coherence comes from planning, not luck.
 
-
-
 **3. Write a Strong Introduction That States Your Position**
 
 Your introduction sets the examiner's expectations for everything that follows. It should do two things: paraphrase the question (never copy it word for word) and state your overall position or essay map clearly.
@@ -47,8 +43,6 @@ Your introduction sets the examiner's expectations for everything that follows. 
 A strong introduction for an opinion essay might look like this: \*paraphrase the issue in your own words, then directly state whether you agree, disagree, or hold a nuanced view.\* Keep it to three or four sentences. You don't need to explain your reasons here — that's what your body paragraphs are for.
 
 Avoid vague openers like "Nowadays, many people think that…" Examiners read hundreds of essays that start this way. A specific, direct paraphrase signals that you've actually read and understood the question.
-
-
 
 4. Develop Each Body Paragraph With the PEEL Structure
 
@@ -66,17 +60,15 @@ One well-developed paragraph built around a single idea will always outscore two
 
 Pay attention to your vocabulary too. Aim to use topic-specific words naturally — not forced synonyms — and vary your sentence structure between simple, compound, and complex constructions.
 
-
-
 **5. Leave Time to Check for Errors**
 
 Most test-takers use every remaining second to keep writing. But spending the final three to four minutes checking your essay can be more valuable than adding another sentence.
 
 Focus your review on your most common error types. Common culprits include:
 
-\- Subject-verb agreement (\*"The government \*are\*"\* vs \*"The government \*is\*"\*)
+\- Subject-verb agreement (The government 'are' vs 'The government 'is'...)
 
-\- Article use (\*a\*, \*an\*, \*the\* — especially tricky for speakers of languages without articles)
+\- Article use ('a', 'an', 'the' — especially tricky for speakers of languages without articles)
 
 \- Tense consistency within a paragraph
 
