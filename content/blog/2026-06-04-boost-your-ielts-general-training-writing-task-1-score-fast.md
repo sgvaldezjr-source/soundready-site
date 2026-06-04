@@ -3,7 +3,7 @@ title: Boost Your IELTS General Training Writing Task 1 Score Fast
 date: 2026-06-04T16:56:00.000+08:00
 author: Sergio
 category: Student Stories
-cover: https://v3b.fal.media/files/b/0a9cd105/W41hWaPkxbv5a1OoxxUcz_a95631ad58df4d739316e8c964ec4d2c.jpg
+cover: /blog-images/blogpost.jpg
 summary: Writing Task 1 is one of the most underestimated sections of the IELTS
   General Training test — and for visa applicants...
 ---
