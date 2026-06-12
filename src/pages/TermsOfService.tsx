@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import SiteHeader from "@/components/SiteHeader";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -80,6 +81,7 @@ export default function TermsOfService() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet><link rel="canonical" href="https://sound-ready.com/terms-of-service" /></Helmet>
       <SiteHeader />
 
       {/* Main Content */}

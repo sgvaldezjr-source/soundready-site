@@ -1,9 +1,11 @@
 import { useLanguage } from "../contexts/LanguageContext";
+import { Helmet } from "react-helmet-async";
 import SiteHeader from "../components/SiteHeader";
 
 export default function Disclaimer() {
   return (
     <div className="min-h-screen bg-white">
+      <Helmet><link rel="canonical" href="https://sound-ready.com/disclaimer" /></Helmet>
       <SiteHeader />
       <div className="max-w-3xl mx-auto pt-24 pb-16 px-6">
       <h1 className="text-3xl font-bold mb-8">Disclaimer</h1>

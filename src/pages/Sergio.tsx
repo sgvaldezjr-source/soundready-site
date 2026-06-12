@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -192,6 +193,7 @@ export default function Sergio() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet><link rel="canonical" href="https://sound-ready.com/sergio" /></Helmet>
       <SiteHeader />
       <div className="h-16" />
 

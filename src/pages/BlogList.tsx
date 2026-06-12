@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SiteHeader from "@/components/SiteHeader";
@@ -33,6 +34,7 @@ export default function BlogList() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet><link rel="canonical" href="https://sound-ready.com/blog" /></Helmet>
       <SiteHeader />
       <div className="max-w-4xl mx-auto px-4 py-16 pt-32">
         <h1

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useRoute, Link } from "wouter";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -95,8 +96,11 @@ export default function BlogPost() {
     ),
   };
 
+  const slug = params?.slug;
+
   return (
     <div className="min-h-screen bg-white">
+      <Helmet><link rel="canonical" href={`https://sound-ready.com/blog/${slug}`} /></Helmet>
       <SiteHeader />
       <article className="max-w-2xl mx-auto px-6 pt-32 pb-24">
         <Link href="/blog">

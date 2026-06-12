@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useRoute, Link } from "wouter";
+import { Helmet } from "react-helmet-async";
+import { useRoute, Link, useLocation } from "wouter";
 import SiteHeader from "@/components/SiteHeader";
 
 interface Post {
@@ -16,6 +17,7 @@ export default function BlogArchive() {
   const [, tagParams] = useRoute("/blog/tag/:tag");
   const [posts, setPosts] = useState<Post[]>([]);
 
+  const [location] = useLocation();
   const filterType = catParams ? "category" : "tag";
   const filterValue = catParams?.category || tagParams?.tag || "";
 
@@ -34,6 +36,7 @@ export default function BlogArchive() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet><link rel="canonical" href={`https://sound-ready.com${location}`} /></Helmet>
       <SiteHeader />
       <div className="max-w-4xl mx-auto px-4 py-16 pt-32">
         <Link href="/blog">
