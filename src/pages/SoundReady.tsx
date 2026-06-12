@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -83,7 +84,11 @@ export default function SoundReady() {
 const logoUrl = "/soundready-logo-transparent.png";
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <Helmet>
+        <link rel="canonical" href="https://sound-ready.com/" />
+      </Helmet>
+      <div className="min-h-screen bg-white">
       <SiteHeader />
       <div className="h-16" />
 
@@ -374,6 +379,7 @@ const logoUrl = "/soundready-logo-transparent.png";
           </div>
         </div>
       </footer>
-    </div>
+     </div>
+    </>
   );
 }
