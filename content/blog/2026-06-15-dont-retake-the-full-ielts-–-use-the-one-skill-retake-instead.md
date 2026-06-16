@@ -7,6 +7,7 @@ tags:
   - "#IELTS"
   - "#ieltstips"
   - "#english"
+cover: /blog-images/2cb109d2-d36f-467e-bb72-49509f484879.jpg
 summary: One section let you down.
 ---
 You sat the IELTS. You studied hard, walked into the test centre, and gave it everything. Then the results came back — and one section let you down. Maybe your Writing score sat stubbornly at Band 6 when you needed a 7. Maybe your Speaking held you back by half a band. The rest of your scores? Solid. So the idea of redoing the entire test — four sections, full price, weeks of preparation — feels both exhausting and unfair.
