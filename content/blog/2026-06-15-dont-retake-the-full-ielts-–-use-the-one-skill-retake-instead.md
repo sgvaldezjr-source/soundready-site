@@ -13,13 +13,9 @@ You sat the IELTS. You studied hard, walked into the test centre, and gave it ev
 
 # Here's what most re-takers don't know: you don't have to.
 
-
-
-The IELTS One Skill Retake lets you retake a single section of your test without repeating the others. If you took IELTS on computer, this option could save you significant time, money, and stress — and get you to your target band faster than a full retake ever would
+The IELTS One Skill Retake lets you retake a single section of your test without repeating the others. If you took IELTS on computer, this option could save you significant time, money, and stress — and get you to your target band faster than a full retake ever would.
 
 # What Is the IELTS One Skill Retake?
-
-
 
 The One Skill Retake (OSR) is an official IELTS feature, available since 2024, that allows you to retake exactly one of the four test sections — Listening, Reading, Writing, or Speaking — within 60 days of your original test date.
 
@@ -27,15 +23,13 @@ Your other three scores stay on record. You only sit the section you need to imp
 
 # A few key facts to know upfront:
 
+**Eligibility**: The OSR is available exclusively for computer-delivered IELTS tests (IELTS Academic and IELTS General Training on computer). Paper-based test takers are not eligible.
 
+**Time window**: You must book your OSR within 60 days of your original test date — so act quickly once your results arrive.
 
-Eligibility: The OSR is available exclusively for computer-delivered IELTS tests (IELTS Academic and IELTS General Training on computer). Paper-based test takers are not eligible.
+**Cost:** Fees vary by country but are typically US$200–$255 — meaningfully less than the cost of a full retake.
 
-Time window: You must book your OSR within 60 days of your original test date — so act quickly once your results arrive.
-
-Cost: Fees vary by country but are typically US$200–$255 — meaningfully less than the cost of a full retake.
-
-Availability: The OSR is now availablth British Council and IDP test centres.
+**Availability**: The OSR is now available in 50+ countries through both British Council and IDP test centres.
 
 # Is the One Skill Retake Right for You?
 
@@ -51,15 +45,15 @@ If your Listening, Reading, and Speaking scores already meet your target but you
 
 This is the non-negotiable eligibility requirement. If you sat a paper-based test, you'll need to book a full computer-delivered test to access.
 
-**3. Are you within the 60-day window?**
+### 3. Are you within the 60-day window?
 
 Once your results land, start the clock. If you wait too long, the option closes and you'll need a full retake. Check your results immediately wo weeks.
 
 If you answered yes to all three, the OSR is almost certainly your fastest path to the band score you need.
 
-
-
 # How to Prepare for a Single-Section Retake
+
+
 
 The OSR changes your preparation strategy in one important way: you can now concentrate every hour of study on a single skill. That kind of focus is a genuine advantage — but only if you use it correctly.
 
@@ -71,9 +65,9 @@ The OSR changes your preparation strategy in one important way: you can now conc
 
 **Give yourself enough time**. If your band gap is 0.5, four to six weeks of focused preparation is realistic. If you're a full band short, allow eight to twelve weeks and be honest with yourself about the depth of work required.
 
-   
-
 # How Sound Ready Can Help
+
+
 
 Most students who don't improve on a retake make the same mistake: they study harder, not smarter. They more practice tests without addressing score stalled.
 
@@ -82,6 +76,8 @@ At Sound Ready, we work with IELTS re-takers every day. We help you pinpoint exa
 We're also familiar with the OSR process itself: how to diagnose your weakest criterion, how to structure a short preparation window, and how to walk into your retake with a clear strategy rather than a vague hope.
 
 ## Ready to Make Your Retake Count?
+
+
 
 The IELTS One Skill Retake is one of the most efficient routes to your target band — but only if you use your preparation window wisely. Don't spend the next 60 days doing what you did before and hoping for a different result.
 
