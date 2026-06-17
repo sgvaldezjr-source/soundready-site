@@ -36,8 +36,7 @@ The difference between a generalised ***English teacher*** and an ***IELTS speci
 
 When comparing tutors, evaluate them across four dimensions: qualifications, IELTS-specific experience, teaching approach, and transparency about what progress looks like. The table below breaks down what each credential tier actually means for your preparation.
 
-```
-
+The single most valuable credential is \*\*former examiner status\*\*. If your tutor has sat on the other side of the marking table, they know what earns marks and what wastes them — because they have awarded those marks themselves.
 <table>
   <thead>
     <tr>
@@ -69,22 +68,18 @@ When comparing tutors, evaluate them across four dimensions: qualifications, IEL
     </tr>
   </tbody>
 </table>
-```
-
-The single most valuable credential is \*\*former examiner status\*\*. If your tutor has sat on the other side of the marking table, they know what earns marks and what wastes them — because they have awarded those marks themselves.
-
 💡 **Tip: Ask directly**: "Have you marked real IELTS tests as a certified examiner?" A clear yes is a strong green flag. A vague answer like "I've studied the marking criteria closely" is not the same thing — and a confident expert won't be evasive about it.
 
 ## Red Flags That Signal a Tutor Isn't Worth Your Time or Money
 
    Some tutors are skilled at sounding authoritative without delivering results. Watch for these warning signs before you commit.
 
-*  They promise a specific band score.\*\* No ethical tutor can guarantee a Band 7 because outcomes depend on the individual learner's starting point, effort, and timeline. What a tutor \*can\* promise is a structured, evidence-based programme with measurable milestones.
+* They promise a specific band score.\*\* No ethical tutor can guarantee a Band 7 because outcomes depend on the individual learner's starting point, effort, and timeline. What a tutor \*can\* promise is a structured, evidence-based programme with measurable milestones.
 * They skip a diagnostic assessment.\*\* A tutor who quotes you a price and books your first lesson without first understanding your current level, your target score, and your weakest module is guessing. Quality IELTS preparation is targeted, not generic.
 * Every lesson is a mock test.\*\* Practising tests without analysing \*why\* you got answers wrong doesn't build skills — it builds familiarity with the format. You need tuition, not just repetition.
 * They have no experience with your specific version. **IELTS Academic Writing Task 1** and **IELTS General Training Writing Task 1** are completely different tasks. Make sure your tutor has specific experience with the version you're actually sitting.
 
-## Use this checklist during any free consultation. 
+## Use this checklist during any free consultation.
 
 A tutor who knows their subject will answer all five without hesitation.
 
@@ -96,7 +91,7 @@ A tutor who knows their subject will answer all five without hesitation.
 
    If a tutor stumbles on any of these questions, that hesitation tells you something important about the quality of preparation you'll receive.
 
-##  How Sound Ready Can Help
+## How Sound Ready Can Help
 
 Sound Ready is led by Sergio, a former IELTS examiner with British Council certification and a Master's in Education. When he tells you why your Writing Task 2 isn't reaching Band 7, he's drawing on the exact marking criteria used in real exam rooms — not a textbook interpretation of them. Every student starts with a diagnostic assessment that identifies precisely which module is costing the most marks, and every programme is built around closing that specific gap. There's no padding, no generic coursework, and no guesswork. Book a free consultation at https://sound-ready.com to find your starting point.
 
@@ -106,7 +101,7 @@ Knowing how to choose an IELTS tutor is the step most candidates skip — and it
 
 ## Frequently Asked Questions
 
-####  How many IELTS lessons do I need before my test?
+#### How many IELTS lessons do I need before my test?
 
    That depends entirely on how far you are from your target score. If you're currently at Band 6 and need Band 7, most students require between 10 and 20 focused sessions — not because of a fixed programme length, but because that's typically how long it takes to close a 1-band gap across all four modules. A diagnostic assessment at the start tells you which modules need the most work, so you're not spending sessions on your strengths.
 
