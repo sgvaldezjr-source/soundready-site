@@ -36,7 +36,9 @@ The difference between a generalised ***English teacher*** and an ***IELTS speci
 
 When comparing tutors, evaluate them across four dimensions: qualifications, IELTS-specific experience, teaching approach, and transparency about what progress looks like. The table below breaks down what each credential tier actually means for your preparation.
 
-The single most valuable credential is \*\*former examiner status\*\*. If your tutor has sat on the other side of the marking table, they know what earns marks and what wastes them — because they have awarded those marks themselves.
+The single most valuable credential is 'former examiner status'. If your tutor has sat on the other side of the marking table, they know what earns marks and what wastes them — because they have awarded those marks themselves.
+
+
 <table>
   <thead>
     <tr>
@@ -66,8 +68,8 @@ The single most valuable credential is \*\*former examiner status\*\*. If your t
       <td>Self-taught or based on personal experience only</td>
       <td>Risky — feedback may reflect opinion rather than examiner criteria</td>
     </tr>
-  </tbody>
-</table>
+
+
 💡 **Tip: Ask directly**: "Have you marked real IELTS tests as a certified examiner?" A clear yes is a strong green flag. A vague answer like "I've studied the marking criteria closely" is not the same thing — and a confident expert won't be evasive about it.
 
 ## Red Flags That Signal a Tutor Isn't Worth Your Time or Money
