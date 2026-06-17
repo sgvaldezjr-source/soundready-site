@@ -39,36 +39,14 @@ When comparing tutors, evaluate them across four dimensions: qualifications, IEL
 The single most valuable credential is 'former examiner status'. If your tutor has sat on the other side of the marking table, they know what earns marks and what wastes them — because they have awarded those marks themselves.
 
 
-<table>
-  <thead>
-    <tr>
-      <th>Credential tier</th>
-      <th>What it means</th>
-      <th>What to expect</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Former IELTS examiner</strong></td>
-      <td>Certified and trained by the British Council or IDP to mark live tests</td>
-      <td>Knows the exact descriptors — can tell you precisely what Band 7 looks like vs Band 6.5</td>
-    </tr>
-    <tr>
-      <td><strong>CELTA / DELTA certified</strong></td>
-      <td>Cambridge-accredited language teaching qualification</td>
-      <td>Strong general methodology; may not have deep IELTS-marking knowledge</td>
-    </tr>
-    <tr>
-      <td><strong>Specialist IELTS certificate</strong></td>
-      <td>Short course focused on IELTS content</td>
-      <td>Better than no qualification; quality varies widely</td>
-    </tr>
-    <tr>
-      <td><strong>No formal qualification</strong></td>
-      <td>Self-taught or based on personal experience only</td>
-      <td>Risky — feedback may reflect opinion rather than examiner criteria</td>
-    </tr>
 
+
+| Credential tier | What it means | What to expect |
+|---|---|---|
+| **Former IELTS examiner** | Certified and trained by the British Council or IDP to mark live tests | Knows the exact descriptors — can tell you precisely what Band 7 looks like vs Band 6.5 |
+| **CELTA / DELTA certified** | Cambridge-accredited language teaching qualification | Strong general methodology; may not have deep IELTS-marking knowledge |
+| **Specialist IELTS certificate** | Short course focused on IELTS content | Better than no qualification; quality varies widely |
+| **No formal qualification** | Self-taught or based on personal experience only | Risky — feedback may reflect opinion rather than examiner criteria |
 
 💡 **Tip: Ask directly**: "Have you marked real IELTS tests as a certified examiner?" A clear yes is a strong green flag. A vague answer like "I've studied the marking criteria closely" is not the same thing — and a confident expert won't be evasive about it.
 
