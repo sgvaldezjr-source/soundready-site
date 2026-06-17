@@ -16,8 +16,6 @@ summary: "Boost your IELTS Speaking score by using idioms and collocations natur
 cover: "/blog-images/the-smart-way-to-use-idioms-and-collocations-in-ielts-speaking.png"
 ---
 
-# The Smart Way to Use Idioms and Collocations in IELTS Speaking
-
 > **Key Takeaways**
 > - Lexical Resource accounts for 25% of your IELTS Speaking band score — and it's one of the most trainable criteria
 > - Collocations signal natural fluency to examiners more reliably than memorised idioms
