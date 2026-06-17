@@ -36,13 +36,12 @@ The difference between a generalised ***English teacher*** and an ***IELTS speci
 
 When comparing tutors, evaluate them across four dimensions: qualifications, IELTS-specific experience, teaching approach, and transparency about what progress looks like. The table below breaks down what each credential tier actually means for your preparation.
 
-| Credential tier | What it means | What to expect |
-|---|---|---|
-| **Former IELTS examiner** | Certified and trained by the British Council or IDP to mark live tests | Knows the exact descriptors — can tell you precisely what Band 7 looks like vs Band 6.5 |
-| **CELTA / DELTA certified** | Cambridge-accredited language teaching qualification | Strong general methodology; may not have deep IELTS-marking knowledge |
-| **Specialist IELTS certificate** | Short course focused on IELTS content | Better than no qualification; quality varies widely |
-| **No formal qualification** | Self-taught or based on personal experience only | Risky — feedback may reflect opinion rather than examiner criteria |
-
+| Credential tier                  | What it means                                                          | What to expect                                                                          |
+| -------------------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **Former IELTS examiner**        | Certified and trained by the British Council or IDP to mark live tests | Knows the exact descriptors — can tell you precisely what Band 7 looks like vs Band 6.5 |
+| **CELTA / DELTA certified**      | Cambridge-accredited language teaching qualification                   | Strong general methodology; may not have deep IELTS-marking knowledge                   |
+| **Specialist IELTS certificate** | Short course focused on IELTS content                                  | Better than no qualification; quality varies widely                                     |
+| **No formal qualification**      | Self-taught or based on personal experience only                       | Risky — feedback may reflect opinion rather than examiner criteria                      |
 
 The single most valuable credential is **former examiner status**. If your tutor has sat on the other side of the marking table, they know what earns marks and what wastes them — because they have awarded those marks themselves.
 
@@ -52,10 +51,10 @@ The single most valuable credential is **former examiner status**. If your tutor
 
    Some tutors are skilled at sounding authoritative without delivering results. Watch for these warning signs before you commit.
 
-* They promise a specific band score.\*\* No ethical tutor can guarantee a Band 7 because outcomes depend on the individual learner's starting point, effort, and timeline. What a tutor \*can\* promise is a structured, evidence-based programme with measurable milestones.
-* They skip a diagnostic assessment.\*\* A tutor who quotes you a price and books your first lesson without first understanding your current level, your target score, and your weakest module is guessing. Quality IELTS preparation is targeted, not generic.
-* Every lesson is a mock test.\*\* Practising tests without analysing \*why\* you got answers wrong doesn't build skills — it builds familiarity with the format. You need tuition, not just repetition.
-* They have no experience with your specific version. **IELTS Academic Writing Task 1** and **IELTS General Training Writing Task 1** are completely different tasks. Make sure your tutor has specific experience with the version you're actually sitting.
+* **They promise a specific band score.** No ethical tutor can guarantee a Band 7 because outcomes depend on the individual learner's starting point, effort, and timeline. What a tutor *can* promise is a structured, evidence-based programme with measurable milestones.
+* **They skip a diagnostic assessment.** A tutor who quotes you a price and books your first lesson without first understanding your current level, your target score, and your weakest module is guessing. Quality IELTS preparation is targeted, not generic.
+* **Every lesson is a mock test.** Practising tests without analysing *why* you got answers wrong doesn't build skills — it builds familiarity with the format. You need tuition, not just repetition.
+* **They have no experience with your specific version.** *IELTS Academic Writing Task 1* and *IELTS General Training Writing Task 1* are completely different tasks. Make sure your tutor has specific experience with the version you're actually sitting.
 
 ## Use this checklist during any free consultation.
 
@@ -67,11 +66,11 @@ A tutor who knows their subject will answer all five without hesitation.
 * What's your process when a student isn't making progress?
 * Can you show me how you track improvement between sessions?
 
-   If a tutor stumbles on any of these questions, that hesitation tells you something important about the quality of preparation you'll receive.
+If a tutor stumbles on any of these questions, that hesitation tells you something important about the quality of preparation you'll receive.
 
 ## How Sound Ready Can Help
 
-Sound Ready is led by Sergio, a former IELTS examiner with British Council certification and a Master's in Education. When he tells you why your Writing Task 2 isn't reaching Band 7, he's drawing on the exact marking criteria used in real exam rooms — not a textbook interpretation of them. Every student starts with a diagnostic assessment that identifies precisely which module is costing the most marks, and every programme is built around closing that specific gap. There's no padding, no generic coursework, and no guesswork. Book a free consultation at https://sound-ready.com to find your starting point.
+Sound Ready is led by Sergio, a former certified IELTS examiner and a Master's in Education. When he tells you why your Writing Task 2 isn't reaching Band 7, he's drawing on the exact marking criteria used in real exam rooms — not a textbook interpretation of them. Every student starts with a diagnostic assessment that identifies precisely which module is costing the most marks, and every programme is built around closing that specific gap. There's no padding, no generic coursework, and no guesswork. Book a free consultation at https://sound-ready.com to find your starting point.
 
 ## Conclusion
 
@@ -81,15 +80,15 @@ Knowing how to choose an IELTS tutor is the step most candidates skip — and it
 
 #### How many IELTS lessons do I need before my test?
 
-   That depends entirely on how far you are from your target score. If you're currently at Band 6 and need Band 7, most students require between 10 and 20 focused sessions — not because of a fixed programme length, but because that's typically how long it takes to close a 1-band gap across all four modules. A diagnostic assessment at the start tells you which modules need the most work, so you're not spending sessions on your strengths.
+That depends entirely on how far you are from your target score. If you're currently at Band 6 and need Band 7, most students require between 10 and 20 focused sessions — not because of a fixed programme length, but because that's typically how long it takes to close a 1-band gap across all four modules. A diagnostic assessment at the start tells you which modules need the most work, so you're not spending sessions on your strengths.
 
 #### Is an online IELTS tutor as effective as in-person lessons?
 
- Yes — provided the tutor structures sessions properly. Online lessons let you share written work in real time, record speaking sessions for later review, and schedule flexibly around work or study commitments. The format matters far less than the quality of feedback you receive. The best IELTS tutor for you is the one who gives precise, criteria-based feedback — regardless of whether they're sitting across a table or across a screen.
+Yes — provided the tutor structures sessions properly. Online lessons let you share written work in real time, record speaking sessions for later review, and schedule flexibly around work or study commitments. The format matters far less than the quality of feedback you receive. The best IELTS tutor for you is the one who gives precise, criteria-based feedback — regardless of whether they're sitting across a table or across a screen.
 
 #### Does my IELTS tutor need to be a native English speaker?
 
- No. The IELTS marking criteria don't privilege native speakers — they assess accuracy, range, coherence, and task achievement. What matters is whether your tutor understands those criteria deeply and can model the language that earns marks in each module. A non-native tutor with examiner-level IELTS knowledge will consistently outperform a native speaker with no formal IELTS training.
+No. The IELTS marking criteria don't privilege native speakers — they assess accuracy, range, coherence, and task achievement. What matters is whether your tutor understands those criteria deeply and can model the language that earns marks in each module. A non-native tutor with examiner-level IELTS knowledge will consistently outperform a native speaker with no formal IELTS training.
 
 ### What's the difference between IELTS Academic and General Training?
 
@@ -97,7 +96,7 @@ Both versions share the same Listening and Speaking tests. The difference lies i
 
 ### How do I know if my IELTS tutor is actually helping me improve?
 
- Progress should be measurable at every stage. After your diagnostic session, you should have a clear baseline score for each module. From there, every two to three weeks you should be able to see movement — either in mock test scores, in the detail of written feedback, or in your tutor's assessment of spoken responses against band descriptors. If you've had four or more sessions and can't point to anything that's improved, that's a conversation to have with your tutor — or a signal to find a new one.
+Progress should be measurable at every stage. After your diagnostic session, you should have a clear baseline score for each module. From there, every two to three weeks you should be able to see movement — either in mock test scores, in the detail of written feedback, or in your tutor's assessment of spoken responses against band descriptors. If you've had four or more sessions and can't point to anything that's improved, that's a conversation to have with your tutor — or a signal to find a new one.
 
 ### How much should I expect to pay for a qualified IELTS tutor?
 
