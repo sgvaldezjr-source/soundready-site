@@ -48,6 +48,30 @@ export default function BlogPost() {
   };
 
   const components = {
+    table: ({ children }: any) => (
+      <div style={{ overflowX: "auto", marginBottom: "1.5rem" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9375rem" }}>
+          {children}
+        </table>
+      </div>
+    ),
+    thead: ({ children }: any) => (
+      <thead style={{ backgroundColor: "#1F3A5F" }}>{children}</thead>
+    ),
+    tbody: ({ children }: any) => <tbody>{children}</tbody>,
+    tr: ({ children }: any) => (
+      <tr style={{ borderBottom: "1px solid #E5E7EB" }}>{children}</tr>
+    ),
+    th: ({ children }: any) => (
+      <th style={{ padding: "0.75rem 1rem", textAlign: "left", color: "#FFFFFF", fontWeight: "700", fontSize: "0.875rem" }}>
+        {children}
+      </th>
+    ),
+    td: ({ children }: any) => (
+      <td style={{ padding: "0.75rem 1rem", color: "#222", verticalAlign: "top", borderBottom: "1px solid #E5E7EB" }}>
+        {children}
+      </td>
+    ),
     h2: ({ children }: any) => (
       <h2 style={{ color: "#1F3A5F", fontSize: "1.5rem", fontWeight: "800", marginTop: "2.5rem", marginBottom: "0.75rem", fontFamily: "Georgia, serif" }}>
         {children}
