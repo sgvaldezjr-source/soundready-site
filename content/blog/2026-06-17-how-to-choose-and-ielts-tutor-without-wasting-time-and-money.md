@@ -44,8 +44,11 @@ The single most valuable credential is 'former examiner status'. If your tutor h
 | Credential tier | What it means | What to expect |
 |---|---|---|
 | **Former IELTS examiner** | Certified and trained by the British Council or IDP to mark live tests | Knows the exact descriptors — can tell you precisely what Band 7 looks like vs Band 6.5 |
+
 | **CELTA / DELTA certified** | Cambridge-accredited language teaching qualification | Strong general methodology; may not have deep IELTS-marking knowledge |
+
 | **Specialist IELTS certificate** | Short course focused on IELTS content | Better than no qualification; quality varies widely |
+
 | **No formal qualification** | Self-taught or based on personal experience only | Risky — feedback may reflect opinion rather than examiner criteria |
 
 💡 **Tip: Ask directly**: "Have you marked real IELTS tests as a certified examiner?" A clear yes is a strong green flag. A vague answer like "I've studied the marking criteria closely" is not the same thing — and a confident expert won't be evasive about it.
