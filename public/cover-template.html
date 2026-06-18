@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Cover Template</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 20px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .label {
+      color: #888;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      align-self: flex-start;
+      margin-left: calc(50% - 600px);
+    }
+
+    /* ── CANVAS ─────────────────────────────────────────────── */
+    .cover {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      overflow: hidden;
+      background: #0f1f36;
+      flex-shrink: 0;
+    }
+
+    /* Background photo — swap src per post */
+    .cover__bg {
+      position: absolute;
+      inset: 0;
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.35);
+    }
+
+    /* Dark gradient over photo */
+    .cover__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(15, 31, 54, 0.97) 0%,
+        rgba(15, 31, 54, 0.88) 55%,
+        rgba(15, 31, 54, 0.55) 100%
+      );
+    }
+
+    /* Accent vertical bar */
+    .cover__bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 8px;
+      background: #D4A537;
+    }
+
+    /* ── CONTENT ─────────────────────────────────────────────── */
+    .cover__content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 60px 50px 68px;
+      max-width: 720px;
+    }
+
+    /* Tag pill */
+    .cover__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #D4A537;
+      color: #0f1f36;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 2px;
+      width: fit-content;
+      margin-bottom: 20px;
+    }
+
+    /* Main headline */
+    .cover__headline {
+      font-size: 62px;
+      font-weight: 900;
+      line-height: 1.05;
+      color: #ffffff;
+      margin-bottom: 6px;
+      letter-spacing: -1px;
+    }
+
+    /* Red highlighted word/phrase */
+    .cover__headline .highlight {
+      color: #e63946;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Script accent subtitle */
+    .cover__script {
+      font-family: 'Caveat', cursive;
+      font-size: 36px;
+      color: #D4A537;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    /* Divider */
+    .cover__divider {
+      width: 60px;
+      height: 3px;
+      background: #D4A537;
+      margin-bottom: 24px;
+    }
+
+    /* Checklist */
+    .cover__checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .cover__check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.88);
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .cover__check-item::before {
+      content: '✓';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: #D4A537;
+      color: #0f1f36;
+      font-weight: 900;
+      font-size: 13px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Branding footer */
+    .cover__brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .cover__brand-dot {
+      width: 8px;
+      height: 8px;
+      background: #D4A537;
+      border-radius: 50%;
+    }
+
+    .cover__brand-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Right side image mockup */
+    .cover__right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .cover__right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.6;
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 30%, black 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 30%, black 100%);
+    }
+
+    /* ── INSTRUCTIONS ────────────────────────────────────────── */
+    .instructions {
+      width: 1200px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 30px 36px;
+      color: #ccc;
+      font-family: monospace;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .instructions h2 { color: #D4A537; font-size: 14px; margin-bottom: 12px; font-family: 'Inter', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; }
+    .instructions code { color: #e63946; background: #2a2a2a; padding: 1px 6px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+  <div class="label">Format 1 — Blog Cover (1200 × 630)</div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       COVER — edit the text variables below to change the content
+       ═══════════════════════════════════════════════════════════ -->
+  <div class="cover" style="--bg-image: url('blog-images/ielts-speaking-mistakes-90-of-candidates-make.jpg');">
+    <div class="cover__bg"></div>
+    <div class="cover__overlay"></div>
+    <div class="cover__bar"></div>
+
+    <!-- Right side photo bleed -->
+    <div class="cover__right">
+      <img src="blog-images/ielts-speaking-mistakes-90-of-candidates-make.jpg" alt="" />
+    </div>
+
+    <div class="cover__content">
+
+      <!-- TAG — category label -->
+      <div class="cover__tag">Teaching Tips</div>
+
+      <!-- HEADLINE — main title, use .highlight on any word for red -->
+      <h1 class="cover__headline">
+        The IELTS Speaking<br>
+        <span class="highlight">Mistakes</span> 90% Make
+      </h1>
+
+      <!-- SCRIPT — secondary hook line -->
+      <p class="cover__script">in 2026 — and how to fix them</p>
+
+      <div class="cover__divider"></div>
+
+      <!-- CHECKLIST — up to 4 items -->
+      <ul class="cover__checklist">
+        <li class="cover__check-item">Common fluency traps examiners notice instantly</li>
+        <li class="cover__check-item">What Band 7 candidates do differently</li>
+        <li class="cover__check-item">Practical fixes before your test day</li>
+      </ul>
+
+      <div class="cover__brand">
+        <div class="cover__brand-dot"></div>
+        <span class="cover__brand-name">SoundReady</span>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FORMAT 2 — Square (1080 × 1080) for Instagram / social
+       ═══════════════════════════════════════════════════════════ -->
+  <div class="label" style="margin-left:0; align-self:center;">Format 2 — Square (1080 × 1080) Instagram / Social</div>
+
+  <div class="cover" style="width:1080px; height:1080px; --bg-image: url('blog-images/ielts-speaking-mistakes-90-of-candidates-make.jpg');">
+    <div class="cover__bg"></div>
+    <div class="cover__overlay" style="background: linear-gradient(160deg, rgba(15,31,54,0.97) 0%, rgba(15,31,54,0.75) 100%);"></div>
+    <div class="cover__bar" style="width:10px;"></div>
+
+    <div class="cover__content" style="max-width:100%; padding:80px 80px 80px 90px; justify-content:center;">
+      <div class="cover__tag">Teaching Tips</div>
+      <h1 class="cover__headline" style="font-size:74px;">
+        The IELTS Speaking<br>
+        <span class="highlight">Mistakes</span><br>
+        90% Make
+      </h1>
+      <p class="cover__script" style="font-size:42px;">in 2026 — and how to fix them</p>
+      <div class="cover__divider"></div>
+      <ul class="cover__checklist">
+        <li class="cover__check-item">Common fluency traps examiners notice instantly</li>
+        <li class="cover__check-item">What Band 7 candidates do differently</li>
+        <li class="cover__check-item">Practical fixes before your test day</li>
+      </ul>
+      <div class="cover__brand" style="margin-top:40px;">
+        <div class="cover__brand-dot"></div>
+        <span class="cover__brand-name">SoundReady</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FORMAT 3 — Story / Portrait (1080 × 1920)
+       ═══════════════════════════════════════════════════════════ -->
+  <div class="label" style="margin-left:0; align-self:center;">Format 3 — Story / Portrait (1080 × 1920)</div>
+
+  <div class="cover" style="width:1080px; height:1920px; --bg-image: url('blog-images/ielts-speaking-mistakes-90-of-candidates-make.jpg');">
+    <div class="cover__bg" style="filter:brightness(0.25);"></div>
+    <div class="cover__overlay" style="background: linear-gradient(180deg, rgba(15,31,54,0.95) 0%, rgba(15,31,54,0.70) 50%, rgba(15,31,54,0.97) 100%);"></div>
+    <div class="cover__bar" style="width:10px;"></div>
+
+    <div class="cover__content" style="max-width:100%; padding:120px 90px 120px 100px; justify-content:center; height:100%;">
+      <div class="cover__tag" style="font-size:13px; padding:7px 18px; margin-bottom:32px;">Teaching Tips</div>
+      <h1 class="cover__headline" style="font-size:88px; margin-bottom:12px;">
+        The IELTS<br>Speaking<br>
+        <span class="highlight">Mistakes</span><br>
+        90% Make
+      </h1>
+      <p class="cover__script" style="font-size:52px; margin-bottom:40px;">in 2026 — and how to fix them</p>
+      <div class="cover__divider" style="margin-bottom:40px;"></div>
+      <ul class="cover__checklist" style="gap:18px; margin-bottom:60px;">
+        <li class="cover__check-item" style="font-size:20px;">Common fluency traps examiners notice instantly</li>
+        <li class="cover__check-item" style="font-size:20px;">What Band 7 candidates do differently</li>
+        <li class="cover__check-item" style="font-size:20px;">Practical fixes before your test day</li>
+      </ul>
+      <div class="cover__brand">
+        <div class="cover__brand-dot"></div>
+        <span class="cover__brand-name" style="font-size:18px;">SoundReady</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       HOW TO USE
+       ═══════════════════════════════════════════════════════════ -->
+  <div class="instructions">
+    <h2>How to customise for each blog post</h2>
+    1. Change the <code>--bg-image</code> on each .cover div to use a different photo<br>
+    2. Edit the <code>.cover__tag</code> text (category)<br>
+    3. Edit the <code>.cover__headline</code> — wrap any word in <code>&lt;span class="highlight"&gt;</code> to make it red<br>
+    4. Edit the <code>.cover__script</code> line (the handwritten-style hook)<br>
+    5. Edit the 3 <code>.cover__check-item</code> lines (key takeaways)<br><br>
+    To save as an image: open this file in Chrome → right-click a cover → Inspect →
+    find the .cover div → right-click in DevTools → "Capture node screenshot"
+  </div>
+
+</body>
+</html>
