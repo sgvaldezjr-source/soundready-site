@@ -249,15 +249,17 @@
     }
 
     function checkItems(post) {
-      const items = (post.tags || [])
-        .filter(t => t && !t.startsWith('#') && t.length > 3)
+      // Split summary into sentences and use the first 3 as takeaway items
+      const sentences = (post.summary || '')
+        .split(/(?<=[.!?])\s+/)
+        .map(s => s.replace(/^[#\s]+/, '').trim())
+        .filter(s => s.length > 20)
         .slice(0, 3);
-      if (items.length >= 2) return items;
-      // fallback: derive from category
+      if (sentences.length >= 2) return sentences;
       return [
-        `${post.category} insight from a former IELTS examiner`,
+        `Expert ${post.category || 'IELTS'} insight from a former examiner`,
         'Practical strategies you can apply immediately',
-        'Boost your band score with proven techniques',
+        'Proven techniques to boost your band score',
       ];
     }
 
