@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import SiteHeader from "@/components/SiteHeader";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -6,6 +7,7 @@ export default function AppPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <Helmet><link rel="canonical" href="https://sound-ready.com/app" /></Helmet>
       <SiteHeader />
 
       {/* Hero */}
