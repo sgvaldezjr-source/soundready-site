@@ -13,49 +13,79 @@
       padding: 40px 20px 80px;
     }
 
-    h1 {
+    /* ── HEADER ───────────────────────────────────────────── */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
       color: #D4A537;
       font-size: 13px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-    .subtitle {
-      color: #555;
+    .header p {
+      color: #444;
       font-size: 12px;
+    }
+
+    /* ── FORMAT PICKER ────────────────────────────────────── */
+    .picker {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+
+    .picker__btn {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      color: #888;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.15s;
       text-align: center;
-      margin-bottom: 48px;
+      line-height: 1.5;
+    }
+    .picker__btn:hover {
+      border-color: #D4A537;
+      color: #D4A537;
+    }
+    .picker__btn.active {
+      background: #D4A537;
+      border-color: #D4A537;
+      color: #0f1f36;
+    }
+    .picker__btn small {
+      display: block;
+      font-size: 10px;
+      opacity: 0.7;
+      font-weight: 400;
+      margin-top: 2px;
     }
 
     /* ── POST SECTION ─────────────────────────────────────── */
     .post-section {
       max-width: 1200px;
-      margin: 0 auto 80px;
+      margin: 0 auto 72px;
     }
 
     .post-title {
-      color: #888;
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #222;
-    }
-
-    .formats {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .format-label {
       color: #555;
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1e1e1e;
     }
 
     /* ── COVER CANVAS ─────────────────────────────────────── */
@@ -133,7 +163,6 @@
       color: #fff;
       letter-spacing: -0.5px;
     }
-
     .cover__headline .red { color: #e63946; }
 
     .cover__script {
@@ -157,24 +186,20 @@
     .cover__checklist li {
       display: flex;
       align-items: center;
-      gap: 10px;
       color: rgba(255,255,255,0.85);
       font-weight: 400;
     }
-
 
     .cover__brand {
       display: flex;
       align-items: center;
       gap: 8px;
     }
-
     .cover__brand-dot {
       width: 7px; height: 7px;
       background: #D4A537;
       border-radius: 50%;
     }
-
     .cover__brand-name {
       font-weight: 700;
       color: rgba(255,255,255,0.45);
@@ -187,10 +212,10 @@
       max-width: 1200px;
       margin: 0 auto;
       background: #161616;
-      border: 1px solid #2a2a2a;
+      border: 1px solid #222;
       border-radius: 6px;
       padding: 28px 36px;
-      color: #aaa;
+      color: #666;
       font-size: 13px;
       line-height: 1.9;
     }
@@ -199,7 +224,7 @@
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       text-align: left;
     }
     .instructions code {
@@ -209,47 +234,73 @@
       border-radius: 3px;
       font-size: 12px;
     }
+
+    /* hidden until format chosen */
+    #covers { display: none; }
+    #covers.visible { display: block; }
   </style>
 </head>
 <body>
 
-  <h1>SoundReady — Blog Cover Generator</h1>
-  <p class="subtitle">All posts · 3 formats each · auto-generated from blog-index.json</p>
+  <div class="header">
+    <h1>SoundReady — Blog Cover Generator</h1>
+    <p>Choose a format to generate covers for all posts</p>
+  </div>
+
+  <!-- FORMAT PICKER -->
+  <div class="picker">
+    <button class="picker__btn" data-format="1">
+      Blog Cover
+      <small>1200 × 630</small>
+    </button>
+    <button class="picker__btn" data-format="2">
+      Instagram Square
+      <small>1080 × 1080</small>
+    </button>
+    <button class="picker__btn" data-format="3">
+      Story / Portrait
+      <small>1080 × 1920</small>
+    </button>
+  </div>
 
   <div id="covers"></div>
 
   <div class="instructions">
     <h2>How to save as an image</h2>
     Open in Chrome · Right-click a cover → <code>Inspect</code> · Find the <code>.cover</code> div in DevTools · Right-click it → <code>Capture node screenshot</code><br>
-    The PNG saves at exact pixel dimensions. Repeat for each format.<br><br>
-    <strong style="color:#ccc;">To add a new post:</strong> just publish it normally — this page rebuilds automatically on next deploy.
+    The PNG saves at exact pixel dimensions.<br><br>
+    <strong style="color:#888;">New post published?</strong> Just deploy — this page updates automatically.
   </div>
 
   <script>
-    // ── helpers ──────────────────────────────────────────────
+    const FORMATS = {
+      1: { label: 'Blog Cover — 1200 × 630',        w: 1200, h: 630,  headlineSize: 58, scriptSize: 32, tagSize: 10, checkSize: 15, brandSize: 12, checkIcon: 20, padH: 60,  padV: 50,  barW: 8,  portrait: false },
+      2: { label: 'Instagram Square — 1080 × 1080', w: 1080, h: 1080, headlineSize: 68, scriptSize: 38, tagSize: 12, checkSize: 17, brandSize: 13, checkIcon: 24, padH: 80,  padV: 80,  barW: 10, portrait: false },
+      3: { label: 'Story / Portrait — 1080 × 1920', w: 1080, h: 1920, headlineSize: 82, scriptSize: 48, tagSize: 13, checkSize: 20, brandSize: 16, checkIcon: 28, padH: 90,  padV: 120, barW: 10, portrait: true  },
+    };
+
+    let allPosts = [];
+    let activeFormat = null;
+
+    // ── helpers ───────────────────────────────────────────────
     function firstWords(str, n) {
-      if (!str) return '';
-      return str.split(/\s+/).slice(0, n).join(' ');
+      return (str || '').split(/\s+/).slice(0, n).join(' ');
     }
 
-    // Split title into up to 2 lines, bolding first ~half
     function splitTitle(title) {
       const words = title.trim().split(/\s+/);
-      const half = Math.ceil(words.length / 2);
+      const half  = Math.ceil(words.length / 2);
       const line1 = words.slice(0, half).join(' ');
       const line2 = words.slice(half).join(' ');
-      // highlight first "power word" in line1 (first word ≥ 4 chars)
-      const hl = line1.replace(/^(\S{4,}\S*)/, '<span class="red">$1</span>');
+      const hl    = line1.replace(/^(\S{4,}\S*)/, '<span class="red">$1</span>');
       return line2 ? `${hl}<br>${line2}` : hl;
     }
 
     function scriptLine(post) {
-      if (post.summary) return firstWords(post.summary, 10) + '…';
-      return post.title;
+      return post.summary ? firstWords(post.summary, 10) + '…' : post.title;
     }
 
     function checkItems(post) {
-      // Split summary into sentences and use the first 3 as takeaway items
       const sentences = (post.summary || '')
         .split(/(?<=[.!?])\s+/)
         .map(s => s.replace(/^[#\s]+/, '').trim())
@@ -265,55 +316,33 @@
 
     function bgUrl(post) {
       if (post.cover && post.cover.startsWith('http')) return post.cover;
-      if (post.cover) return post.cover;
-      return 'blog-images/blogpost.jpg';
+      return post.cover || 'blog-images/blogpost.jpg';
     }
 
-    // ── cover builder ─────────────────────────────────────────
-    function buildCover(post, width, height, opts = {}) {
-      const {
-        headlineSize = 56,
-        scriptSize   = 32,
-        tagSize      = 10,
-        checkSize    = 14,
-        brandSize    = 12,
-        checkIcon    = 20,
-        padH         = 60,
-        padV         = 50,
-        barW         = 8,
-        portrait     = false,
-      } = opts;
-
+    // ── build a single cover ──────────────────────────────────
+    function buildCover(post, fmt) {
+      const { w, h, headlineSize, scriptSize, tagSize, checkSize, brandSize, checkIcon, padH, padV, barW, portrait } = fmt;
       const items = checkItems(post);
       const bg    = bgUrl(post);
 
-      const itemsHtml = items.map(t =>
-        `<li class="cover__checklist-item" style="font-size:${checkSize}px; gap:10px;">
-          <span style="width:${checkIcon}px;height:${checkIcon}px;min-width:${checkIcon}px;display:flex;align-items:center;justify-content:center;background:#D4A537;color:#0f1f36;font-weight:900;font-size:${checkIcon * 0.65}px;border-radius:2px;">✓</span>
+      const itemsHtml = items.map(t => `
+        <li style="font-size:${checkSize}px;gap:10px;display:flex;align-items:center;color:rgba(255,255,255,0.85);">
+          <span style="width:${checkIcon}px;height:${checkIcon}px;min-width:${checkIcon}px;display:flex;align-items:center;justify-content:center;background:#D4A537;color:#0f1f36;font-weight:900;font-size:${Math.round(checkIcon*0.65)}px;border-radius:2px;flex-shrink:0;">✓</span>
           ${t}
-        </li>`
-      ).join('');
+        </li>`).join('');
 
       return `
-        <div class="cover" style="width:${width}px;height:${height}px;">
+        <div class="cover" style="width:${w}px;height:${h}px;">
           <div class="cover__bg" style="background-image:url('${bg}');"></div>
           <div class="cover__overlay" style="${portrait ? 'background:linear-gradient(180deg,rgba(15,31,54,0.97) 0%,rgba(15,31,54,0.75) 50%,rgba(15,31,54,0.97) 100%);' : ''}"></div>
           <div class="cover__bar" style="width:${barW}px;"></div>
           ${!portrait ? `<div class="cover__right-bleed"><img src="${bg}" alt=""/></div>` : ''}
-          <div class="cover__content" style="height:100%;padding:${padV}px ${padH}px ${padV}px ${padH + barW}px;max-width:${portrait ? '100%' : Math.round(width * 0.62) + 'px'};">
-            <div class="cover__tag" style="font-size:${tagSize}px;padding:5px 13px;margin-bottom:${Math.round(padV * 0.4)}px;">
-              ${post.category || 'IELTS'}
-            </div>
-            <h2 class="cover__headline" style="font-size:${headlineSize}px;margin-bottom:6px;">
-              ${splitTitle(post.title)}
-            </h2>
-            <p class="cover__script" style="font-size:${scriptSize}px;margin-bottom:${Math.round(padV * 0.5)}px;">
-              ${scriptLine(post)}
-            </p>
-            <div class="cover__divider" style="margin-bottom:${Math.round(padV * 0.5)}px;"></div>
-            <ul class="cover__checklist" style="gap:${Math.round(checkSize * 0.75)}px;margin-bottom:${padV}px;list-style:none;">
-              ${itemsHtml}
-            </ul>
+          <div class="cover__content" style="height:100%;padding:${padV}px ${padH}px ${padV}px ${padH+barW}px;max-width:${portrait ? '100%' : Math.round(w*0.62)+'px'};">
+            <div class="cover__tag" style="font-size:${tagSize}px;padding:5px 13px;margin-bottom:${Math.round(padV*0.4)}px;">${post.category || 'IELTS'}</div>
+            <h2 class="cover__headline" style="font-size:${headlineSize}px;margin-bottom:6px;">${splitTitle(post.title)}</h2>
+            <p class="cover__script" style="font-size:${scriptSize}px;margin-bottom:${Math.round(padV*0.5)}px;">${scriptLine(post)}</p>
+            <div class="cover__divider" style="margin-bottom:${Math.round(padV*0.5)}px;"></div>
+            <ul class="cover__checklist" style="gap:${Math.round(checkSize*0.75)}px;margin-bottom:${padV}px;list-style:none;">${itemsHtml}</ul>
             <div class="cover__brand" style="margin-top:auto;">
               <div class="cover__brand-dot"></div>
               <span class="cover__brand-name" style="font-size:${brandSize}px;">SoundReady</span>
@@ -322,53 +351,39 @@
         </div>`;
     }
 
-    // ── render ────────────────────────────────────────────────
+    // ── render selected format ────────────────────────────────
+    function render(formatKey) {
+      const fmt       = FORMATS[formatKey];
+      const container = document.getElementById('covers');
+      container.innerHTML = '';
+      container.classList.add('visible');
+
+      allPosts.forEach(post => {
+        const section = document.createElement('div');
+        section.className = 'post-section';
+        section.innerHTML = `
+          <div class="post-title">${post.title}</div>
+          ${buildCover(post, fmt)}
+        `;
+        container.appendChild(section);
+      });
+    }
+
+    // ── picker buttons ────────────────────────────────────────
+    document.querySelectorAll('.picker__btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.picker__btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFormat = btn.dataset.format;
+        render(activeFormat);
+        document.getElementById('covers').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // ── fetch posts on load ───────────────────────────────────
     fetch('/blog-index.json')
       .then(r => r.json())
-      .then(posts => {
-        const container = document.getElementById('covers');
-
-        posts.forEach(post => {
-          const section = document.createElement('div');
-          section.className = 'post-section';
-
-          section.innerHTML = `
-            <div class="post-title">${post.title}</div>
-            <div class="formats">
-
-              <div>
-                <div class="format-label">Format 1 — Blog Cover (1200 × 630)</div>
-                ${buildCover(post, 1200, 630, {
-                  headlineSize: 58, scriptSize: 32, tagSize: 10,
-                  checkSize: 15, brandSize: 12, checkIcon: 20,
-                  padH: 60, padV: 50, barW: 8
-                })}
-              </div>
-
-              <div>
-                <div class="format-label">Format 2 — Instagram Square (1080 × 1080)</div>
-                ${buildCover(post, 1080, 1080, {
-                  headlineSize: 68, scriptSize: 38, tagSize: 12,
-                  checkSize: 17, brandSize: 13, checkIcon: 24,
-                  padH: 80, padV: 80, barW: 10
-                })}
-              </div>
-
-              <div>
-                <div class="format-label">Format 3 — Story / Portrait (1080 × 1920)</div>
-                ${buildCover(post, 1080, 1920, {
-                  headlineSize: 82, scriptSize: 48, tagSize: 13,
-                  checkSize: 20, brandSize: 16, checkIcon: 28,
-                  padH: 90, padV: 120, barW: 10, portrait: true
-                })}
-              </div>
-
-            </div>
-          `;
-
-          container.appendChild(section);
-        });
-      });
+      .then(posts => { allPosts = posts; });
   </script>
 </body>
 </html>
