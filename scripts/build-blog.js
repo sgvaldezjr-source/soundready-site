@@ -62,6 +62,7 @@ const staticPages = [
   { loc: `${BASE_URL}/privacy-policy`,   priority: "0.3", lastmod: today },
   { loc: `${BASE_URL}/terms-of-service`, priority: "0.3", lastmod: today },
   { loc: `${BASE_URL}/disclaimer`,       priority: "0.3", lastmod: today },
+  { loc: `${BASE_URL}/about-sergio`,    priority: "0.8", lastmod: today },
 ];
 
 const blogEntries = index.map((post) => ({
