@@ -1,4 +1,4 @@
-import { Home } from "lucide-react";
+import { Home, BookUser, BookOpen, Smartphone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SiteHeader() {
@@ -11,14 +11,14 @@ export default function SiteHeader() {
           <a href="/" style={{ color: "#1F3A5F" }}>
             <Home size={18} />
           </a>
-          <a href="/sergio" className="text-sm font-medium whitespace-nowrap" style={{ color: "#666" }}>
-            {language === "en" ? "Your tutor" : "您的导师"}
+          <a href="/sergio" style={{ color: "#666" }}>
+            <BookUser size={18} />
           </a>
-          <a href="/blog" className="text-sm font-medium" style={{ color: "#666" }}>
-            {language === "en" ? "Blog" : "博客"}
+          <a href="/blog" style={{ color: "#666" }}>
+            <BookOpen size={18} />
           </a>
-          <a href="/app" className="text-sm font-medium" style={{ color: "#666" }}>
-            {language === "en" ? "App" : "应用"}
+          <a href="/app" style={{ color: "#666" }}>
+            <Smartphone size={18} />
           </a>
         </div>
         <div className="flex gap-2 bg-gray-100 rounded-lg p-1 flex-shrink-0">
