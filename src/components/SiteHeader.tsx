@@ -25,7 +25,7 @@ export default function SiteHeader() {
             onClick={() => setLanguage("en")}
             className={`px-3 py-1 rounded text-sm font-medium transition-colors ${language === "en" ? "bg-[#1F3A5F] text-white" : "text-gray-700 hover:bg-gray-200"}`}
           >
-            English
+            EN
           </button>
           <button
             onClick={() => setLanguage("zh")}
