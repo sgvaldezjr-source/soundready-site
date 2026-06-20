@@ -1,3 +1,4 @@
+import { Home } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SiteHeader() {
@@ -7,8 +8,8 @@ export default function SiteHeader() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-200">
       <div className="max-w-5xl mx-auto flex items-center justify-between py-3 px-4">
         <div className="flex gap-3 sm:gap-6 items-center flex-shrink-0">
-          <a href="/" className="text-sm font-medium whitespace-nowrap" style={{ color: "#1F3A5F" }}>
-            SoundReady
+          <a href="/" style={{ color: "#1F3A5F" }}>
+            <Home size={18} />
           </a>
           <a href="/sergio" className="text-sm font-medium whitespace-nowrap" style={{ color: "#666" }}>
             {language === "en" ? "Your tutor" : "您的导师"}
