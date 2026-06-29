@@ -6,10 +6,6 @@ cover: /blog-images/2026-06-29-task1-hero-titled.jpg
 tags: ["IELTS Academic", "Writing", "Task 1", "Band 7"]
 ---
 
-# Identifying Key Features in IELTS Task 1: The Complete Checklist
-
-![IELTS Task 1 Feature Identification](https://raw.githubusercontent.com/sgvaldezjr-source/soundready-site/main/public/blog-images/2026-06-29-task1-hero-titled.jpg)
-
 > **Key Takeaways**
 > - Key features are trends (up/down/flat), patterns, and significant data points — not every number
 > - Always read the title, axis labels, and units first to understand what you're analyzing
