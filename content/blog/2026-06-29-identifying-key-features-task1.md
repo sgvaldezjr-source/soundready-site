@@ -1,5 +1,5 @@
 ---
-title: Identifying Key Features in IELTS Task 1: The Complete Checklist
+title: "Identifying Key Features in IELTS Task 1: The Complete Checklist"
 date: 2026-06-29
 description: Learn the exact checklist to identify key features in IELTS Task 1 prompts. Spot trends, highs, lows, and comparisons in 5 simple steps. Apply this to every prompt and reach Band 7.
 cover: /blog-images/2026-06-29-task1-hero-titled.jpg
