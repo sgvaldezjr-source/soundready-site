@@ -4,7 +4,7 @@ title: "IELTS Task 2: Problem-Solution and Advantages-Disadvantages Prompts"
 date: 2026-06-30
 author: Sound Ready
 excerpt: "Master IELTS Task 2 problem-solution and advantages-disadvantages essays. Analyze causes, propose solutions, weigh competing interests."
-cover: "http://165.245.182.119/assets/sound-ready/hero_task2_part2.jpg"
+cover: "https://raw.githubusercontent.com/sgvaldezjr-source/soundready-site/main/public/assets/hero-images/2026-06-30-task2-part2-hero.jpg"
 ---
 
 # IELTS Task 2: Problem-Solution and Advantages-Disadvantages Prompts

@@ -4,7 +4,7 @@ title: "IELTS Task 2: Opinion and Discussion Prompts"
 date: 2026-06-30
 author: Sound Ready
 excerpt: "Master IELTS Task 2 opinion and discussion prompts. Learn to identify each type and use the structure that scores Band 7."
-cover: "http://165.245.182.119/assets/sound-ready/hero_task2_part1.jpg"
+cover: "https://raw.githubusercontent.com/sgvaldezjr-source/soundready-site/main/public/assets/hero-images/2026-06-30-task2-part1-hero.jpg"
 ---
 
 # IELTS Task 2: Opinion and Discussion Prompts
