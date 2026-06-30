@@ -2,48 +2,68 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sound-ready.com/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://sound-ready.com/sergio</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sound-ready.com/blog</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sound-ready.com/app</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sound-ready.com/contact</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sound-ready.com/privacy-policy</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://sound-ready.com/terms-of-service</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://sound-ready.com/disclaimer</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://sound-ready.com/about-sergio</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sound-ready.com/blog/2026-06-30-ielts-task2-prompts-part1</loc>
+    <lastmod>2026-06-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sound-ready.com/blog/2026-06-30-ielts-task2-prompts-part2</loc>
+    <lastmod>2026-06-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sound-ready.com/blog/2026-06-29-identifying-key-features-task1</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sound-ready.com/blog/2026-06-22-how-to-improve-pronunciation-for-ielts-speaking</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sound-ready.com/blog/2026-06-17-how-to-choose-and-ielts-tutor-without-wasting-time-and-money</loc>
