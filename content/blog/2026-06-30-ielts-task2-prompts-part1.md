@@ -7,8 +7,6 @@ excerpt: "Master IELTS Task 2 opinion and discussion prompts. Learn to identify 
 cover: "https://raw.githubusercontent.com/sgvaldezjr-source/soundready-site/main/public/assets/hero-images/2026-06-30-task2-part1-hero.jpg"
 ---
 
-# IELTS Task 2: Opinion and Discussion Prompts
-
 ## Key Takeaways
 
 - Opinion prompts ask you to take a clear position and defend it

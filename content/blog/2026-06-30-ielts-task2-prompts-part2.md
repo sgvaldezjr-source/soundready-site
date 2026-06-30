@@ -7,8 +7,6 @@ excerpt: "Master IELTS Task 2 problem-solution and advantages-disadvantages essa
 cover: "https://raw.githubusercontent.com/sgvaldezjr-source/soundready-site/main/public/assets/hero-images/2026-06-30-task2-part2-hero.jpg"
 ---
 
-# IELTS Task 2: Problem-Solution and Advantages-Disadvantages Prompts
-
 ## Key Takeaways
 
 - Problem-solution prompts ask you to identify causes and propose realistic solutions
