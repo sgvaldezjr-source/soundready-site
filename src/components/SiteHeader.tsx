@@ -1,4 +1,4 @@
-import { Home, BookUser, BookOpen, Smartphone } from "lucide-react";
+import { Home, BookUser, BookOpen, FileText, Smartphone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SiteHeader() {
@@ -16,6 +16,9 @@ export default function SiteHeader() {
           </a>
           <a href="/blog" style={{ color: "#666" }}>
             <BookOpen size={18} />
+          </a>
+          <a href="/resources" style={{ color: "#666" }}>
+            <FileText size={18} />
           </a>
           <a href="/app" style={{ color: "#666" }}>
             <Smartphone size={18} />

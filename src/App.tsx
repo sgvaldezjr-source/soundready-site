@@ -16,6 +16,7 @@ import AppPage from "./pages/AppPage";
 import BlogList from "./pages/BlogList";
 import BlogPost from "./pages/BlogPost";
 import BlogArchive from "./pages/BlogArchive";
+import Resources from "./pages/Resources";
 function Router() {
   return (
     <>
@@ -28,6 +29,7 @@ function Router() {
         <Route path={"/contact"} component={Contact} />
         <Route path={"/app"} component={AppPage} />
         <Route path={"/blog"} component={BlogList} />
+        <Route path={"/resources"} component={Resources} />
         <Route path={"/blog/category/:category"} component={BlogArchive} />
         <Route path={"/blog/tag/:tag"} component={BlogArchive} />
         <Route path={"/blog/:slug"} component={BlogPost} />
