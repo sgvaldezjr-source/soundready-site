@@ -281,6 +281,131 @@ const RESOURCES = {
       },
     ],
   },
+
+  movers: {
+    slug: "is-your-child-ready-for-movers",
+    levelTag: "A1 · Movers",
+    title: "Is your child ready for Movers?",
+    titleZh: "您的孩子准备好参加 Movers 考试了吗？",
+    quickFacts:
+      "3 papers — Listening (~25 min) · Reading & Writing (30 min) · Speaking (5–7 min, one-on-one) — shields awarded per skill, no pass/fail.",
+    intro:
+      "A1 Movers (Cambridge English Young Learners) is usually a child's first taste of a real exam — but there's no pass or fail here. Every child receives shields for what they can already do across Listening, Reading & Writing, and Speaking. Most children are ready for Movers after a year or so of regular English lessons, once they're comfortable with basic words and short spoken instructions.",
+    introZh:
+      "A1 Movers（剑桥英语青少版考试）通常是孩子第一次接触正式考试——但这里没有及格与不及格之分。每个孩子都会根据听力、读写和口语中已掌握的能力获得盾牌奖励。大多数孩子在经过一年左右的英语常规学习后，能够熟练掌握基础词汇和简单的口头指令时，就已经准备好参加Movers了。",
+    items: [
+      {
+        en: "Can recognise and spell everyday words (colours, animals, family, school objects) out loud and in writing",
+        zh: "能认读并拼写日常词汇（颜色、动物、家庭成员、校园物品），口头和书写都可以",
+      },
+      {
+        en: "Can follow a short story or set of instructions read aloud and answer simple picture/comprehension questions about it",
+        zh: "能听懂朗读的简短故事或指令，并回答关于图片/内容的简单问题",
+      },
+      {
+        en: "Can describe what's happening in a simple picture in a few short sentences",
+        zh: "能用几句简单的话描述图片中发生的事情",
+      },
+      {
+        en: "Can spot 4–5 differences between two similar pictures and explain them in English",
+        zh: "能找出两幅相似图片之间的4-5处不同，并用英语说明",
+      },
+      {
+        en: "Can answer simple personal questions (name, age, favourite things) without long pauses",
+        zh: "能流畅回答简单的个人问题（姓名、年龄、喜欢的事物），不会长时间停顿",
+      },
+      {
+        en: "Can write a simple sentence with mostly correct spelling, even if grammar isn't perfect",
+        zh: "能写出拼写基本正确的简单句子，即使语法不完全正确也没关系",
+      },
+      {
+        en: "Enjoys short English games/songs/stories without visible frustration",
+        zh: "喜欢参与简短的英语游戏、歌曲或故事活动，不会明显感到沮丧或抵触",
+      },
+    ],
+  },
+
+  pet: {
+    slug: "is-your-child-ready-for-pet",
+    levelTag: "B1 · Preliminary for Schools",
+    title: "Is your child ready for PET?",
+    titleZh: "您的孩子准备好参加 PET 考试了吗？",
+    quickFacts:
+      "4 papers — Reading (45 min) · Writing (45 min) · Listening (30 min) · Speaking (10–12 min, paired) — scored on the Cambridge English Scale, CEFR B1.",
+    intro:
+      "B1 Preliminary for Schools (PET) is the next step up from KET, and it's where English starts to feel less like a subject and more like a tool your child can actually use. It asks for longer reading, structured writing, and real opinions — not just correct answers. Most children are ready for PET after building real confidence and stamina at KET level.",
+    introZh:
+      "B1 Preliminary for Schools（PET）是继KET之后的进阶考试，从这一阶段开始，英语对孩子来说不再只是一门学科，而是真正能够运用的工具。它要求孩子阅读更长的文章、进行有条理的写作，并表达真实的观点——而不仅仅是给出正确答案。大多数孩子在KET阶段积累了足够的自信和应试能力后，就已经准备好迎接PET了。",
+    items: [
+      {
+        en: "Can read a longer text (magazine article, story) and understand both detail and overall meaning, not just headlines",
+        zh: "能阅读较长的文章（杂志文章、故事），既能理解细节，也能把握整体意思，而不只是标题",
+      },
+      {
+        en: "Can write a structured ~100-word piece (a story or article) with a beginning, middle and end, not just a list of sentences",
+        zh: "能写出结构完整、约100词的短文（故事或文章），包含开头、发展和结尾，而不只是简单罗列句子",
+      },
+      {
+        en: "Can follow natural-paced spoken English (not slowed down for learners) in short conversations or announcements",
+        zh: "能听懂以自然语速（非为学习者刻意放慢）表达的简短对话或通知",
+      },
+      {
+        en: "Can give opinions and reasons in conversation, not just facts (\"I like it because…\")",
+        zh: "能在对话中表达观点并说明原因（例如“我喜欢它，因为……”），而不只是陈述事实",
+      },
+      {
+        en: "Can sustain a 4-part spoken interaction, including a short discussion with a partner, without needing constant prompting",
+        zh: "能完成包含四个部分的口语互动，包括与同伴的简短讨论，不需要不断提示",
+      },
+      {
+        en: "Can manage independent written work for 45 minutes without losing focus",
+        zh: "能独立完成45分钟的书面练习，且保持专注",
+      },
+      {
+        en: "Shows some ability to infer meaning from context when they don't know every word",
+        zh: "即使遇到不认识的单词，也能根据上下文推测出大致意思",
+      },
+    ],
+  },
+
+  ketToPet: {
+    slug: "ket-to-pet-what-changes",
+    levelTag: "KET → PET",
+    title: "KET → PET: what changes",
+    titleZh: "从 KET 到 PET：有哪些变化？",
+    isTransition: true,
+    quickFacts: "For families moving from A2 Key for Schools (KET) to B1 Preliminary for Schools (PET).",
+    intro:
+      "If your child has just finished KET, congratulations — the hardest part, building real exam confidence, is already done. PET builds directly on those same skills; it doesn't start from scratch. Here's exactly what's different, so you know what to expect.",
+    introZh:
+      "如果您的孩子刚刚完成KET考试，恭喜——最难的部分，也就是建立真正的应试信心，已经完成了。PET正是在这些能力的基础上继续提升，而不是从零开始。以下是两者之间的具体差异，帮助您提前了解。",
+    items: [
+      {
+        en: "One extra paper: Reading and Writing split into two standalone papers (previously combined at KET)",
+        zh: "增加了一门考试：阅读和写作从KET阶段的合并试卷，变成两门独立的试卷",
+      },
+      {
+        en: "Longer, denser reading texts with more inference required, not just literal fact-finding",
+        zh: "阅读文章更长、信息更密集，需要更多推理理解，而不只是查找字面信息",
+      },
+      {
+        en: "Writing moves from short sentences to a structured ~100-word story/article",
+        zh: "写作从简单句子过渡到结构完整、约100词的故事或文章",
+      },
+      {
+        en: "Speaking gets longer (10–12 min vs 8–10 min) and includes more independent opinion-giving",
+        zh: "口语考试时间变长（从8-10分钟增加到10-12分钟），并需要更多独立表达观点",
+      },
+      {
+        en: "Listening moves closer to natural speaking speed",
+        zh: "听力材料的语速更接近自然语速",
+      },
+      {
+        en: "Reassurance: everything the child already learned for KET carries over — PET builds on it rather than replacing it",
+        zh: "请放心：孩子在KET阶段积累的一切——词汇习惯、应试耐力、口语自信——都会直接延续到PET阶段。PET是在KET基础上的进阶，而不是从零开始",
+      },
+    ],
+  },
 };
 
 // ── render ───────────────────────────────────────────────────────

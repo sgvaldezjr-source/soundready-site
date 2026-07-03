@@ -45,15 +45,15 @@ const skills: SkillSection[] = [
         {
           title: "Is your child ready for Movers?",
           note: "Parent readiness checklist",
-          href: "",
-          ready: false,
+          href: "/resources/is-your-child-ready-for-movers.pdf",
+          ready: true,
           subheading: "Movers",
         },
         {
           title: "Is your child ready for KET?",
           note: "Skill-by-skill parent check",
-          href: "",
-          ready: false,
+          href: "/resources/is-your-child-ready-for-ket.pdf",
+          ready: true,
           subheading: "KET",
         },
         {
@@ -66,8 +66,8 @@ const skills: SkillSection[] = [
         {
           title: "Is your child ready for PET?",
           note: "Skill-by-skill parent check",
-          href: "",
-          ready: false,
+          href: "/resources/is-your-child-ready-for-pet.pdf",
+          ready: true,
           subheading: "PET",
         },
         {
@@ -80,8 +80,8 @@ const skills: SkillSection[] = [
         {
           title: "KET → PET: what changes",
           note: "Parent guide",
-          href: "",
-          ready: false,
+          href: "/resources/ket-to-pet-what-changes.pdf",
+          ready: true,
         },
       ],
     },
