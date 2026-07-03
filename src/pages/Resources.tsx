@@ -119,6 +119,22 @@ const skills: SkillSection[] = [
           ready: true,
         },
       ],
+      KET: [
+        {
+          title: "Complete KET Course Book",
+          note: "Unit Maps",
+          href: "/resources/ket-complete-course-book.pdf",
+          ready: true,
+        },
+      ],
+      PET: [
+        {
+          title: "Complete PET Course Book",
+          note: "Unit Maps",
+          href: "/resources/pet-complete-course-book.pdf",
+          ready: true,
+        },
+      ],
       "Young Learners": [
         {
           title: "Is your child ready for Movers?",
