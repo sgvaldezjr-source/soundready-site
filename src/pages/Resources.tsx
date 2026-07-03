@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FileText, Clock } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Empty, EmptyHeader, EmptyMedia, EmptyTitle, EmptyDescription } from "@/components/ui/empty";
+import { Spinner } from "@/components/ui/spinner";
+
+// pdfjs-dist is ~1MB — load it only when a PDF actually needs to render, not on every page
+const PdfPreview = lazy(() => import("@/components/PdfPreview"));
 
 interface ResourceRow {
   title: string;
@@ -254,13 +258,15 @@ export default function Resources() {
     }
 
     return (
-      <iframe
-        key={selected.row.href}
-        src={selected.row.href}
-        title={selected.row.title}
-        loading="lazy"
-        className={`w-full ${heightClass} block`}
-      />
+      <Suspense
+        fallback={
+          <div className={`flex items-center justify-center gap-2 bg-gray-50 text-sm text-gray-400 ${heightClass}`}>
+            <Spinner /> Loading preview…
+          </div>
+        }
+      >
+        <PdfPreview key={selected.row.href} src={selected.row.href} title={selected.row.title} className={heightClass} />
+      </Suspense>
     );
   }
 
@@ -301,6 +307,34 @@ export default function Resources() {
           </TabsList>
 
           <TabsContent value={activeSkill} className="min-w-0 flex-1">
+            <div className="lg:grid lg:grid-cols-[minmax(0,360px)_1fr] lg:gap-8 lg:items-start">
+              {/* preview — directly under the skill tabs on mobile (order-1); docked to the
+                  right column on desktop (lg:order-2) */}
+              <div className="order-1 mb-8 lg:order-2 lg:mb-0 lg:sticky lg:top-28">
+                {selected?.row.ready ? (
+                  <div className="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between gap-4">
+                      <div className="min-w-0">
+                        <p className="font-medium text-gray-900 truncate">{selected.row.title}</p>
+                        <p className="text-sm text-gray-400 truncate">{selected.row.note}</p>
+                      </div>
+                      <a
+                        href={selected.row.href}
+                        download
+                        className="flex-shrink-0 text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
+                        style={{ color: "#1F3A5F" }}
+                      >
+                        Download
+                      </a>
+                    </div>
+                    {renderPreview("h-[50vh] lg:h-[70vh]")}
+                  </div>
+                ) : (
+                  renderPreview("h-[50vh] lg:h-[70vh]")
+                )}
+              </div>
+
+              <div className="order-2 lg:order-1">
             <div className="mb-6 flex flex-wrap gap-2">
               <button
                 onClick={() => setActiveTrack("All")}
@@ -329,7 +363,6 @@ export default function Resources() {
               ))}
             </div>
 
-            <div className="lg:grid lg:grid-cols-[minmax(0,360px)_1fr] lg:gap-8 lg:items-start">
               <div className="space-y-8 lg:max-h-[70vh] lg:overflow-y-auto lg:pr-4">
                 {visibleTracks.map((trackName) => {
                   const rows = section.tracks[trackName] ?? [];
@@ -415,29 +448,6 @@ export default function Resources() {
                   );
                 })}
               </div>
-
-              <div className="mt-8 lg:mt-0 lg:sticky lg:top-28">
-                {selected?.row.ready ? (
-                  <div className="border border-gray-200 rounded-xl overflow-hidden bg-white">
-                    <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between gap-4">
-                      <div className="min-w-0">
-                        <p className="font-medium text-gray-900 truncate">{selected.row.title}</p>
-                        <p className="text-sm text-gray-400 truncate">{selected.row.note}</p>
-                      </div>
-                      <a
-                        href={selected.row.href}
-                        download
-                        className="flex-shrink-0 text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
-                        style={{ color: "#1F3A5F" }}
-                      >
-                        Download
-                      </a>
-                    </div>
-                    {renderPreview("h-[50vh] lg:h-[70vh]")}
-                  </div>
-                ) : (
-                  renderPreview("h-[50vh] lg:h-[70vh]")
-                )}
               </div>
             </div>
           </TabsContent>
