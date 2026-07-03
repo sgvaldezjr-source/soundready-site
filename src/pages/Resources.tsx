@@ -22,8 +22,6 @@ type TrackName = "IELTS" | "KET" | "PET" | "Young Learners";
 
 interface SkillSection {
   skill: string;
-  /** true = always render all four tracks, even empty; false = only render tracks with rows */
-  alwaysShowAllTracks: boolean;
   tracks: Partial<Record<TrackName, ResourceRow[]>>;
 }
 
@@ -39,7 +37,6 @@ const TRACK_ACCENT: Record<TrackName, string> = {
 const skills: SkillSection[] = [
   {
     skill: "Getting started",
-    alwaysShowAllTracks: false,
     tracks: {
       IELTS: [
         {
@@ -96,7 +93,6 @@ const skills: SkillSection[] = [
   },
   {
     skill: "Speaking",
-    alwaysShowAllTracks: true,
     tracks: {
       IELTS: [
         {
@@ -126,7 +122,6 @@ const skills: SkillSection[] = [
   },
   {
     skill: "Reading",
-    alwaysShowAllTracks: true,
     tracks: {
       IELTS: [],
       KET: [],
@@ -136,7 +131,6 @@ const skills: SkillSection[] = [
   },
   {
     skill: "Writing",
-    alwaysShowAllTracks: true,
     tracks: {
       IELTS: [
         {
@@ -159,7 +153,6 @@ const skills: SkillSection[] = [
   },
   {
     skill: "Listening",
-    alwaysShowAllTracks: true,
     tracks: {
       IELTS: [
         {
@@ -189,19 +182,33 @@ function groupBySubheading(rows: ResourceRow[]): { subheading?: string; rows: Re
   return segments;
 }
 
-type Selection = { track: TrackName; row: ResourceRow };
+const SKILL_NAMES = skills.map((s) => s.skill);
 
-function getTracksToRender(section: SkillSection): TrackName[] {
-  return section.alwaysShowAllTracks
-    ? TRACK_ORDER
-    : TRACK_ORDER.filter((t) => (section.tracks[t] ?? []).length > 0);
+/**
+ * Rows for a given (category, skill) pair. KET and PET are nested inside the
+ * "Young Learners" track as subheadings rather than their own top-level track
+ * (see e.g. "Complete KET Course Book"), so surface those under the KET/PET
+ * category too — stripping the now-redundant subheading label since the
+ * category tab itself already says "KET"/"PET".
+ */
+function getRows(category: TrackName, skillName: string): ResourceRow[] {
+  const section = skills.find((s) => s.skill === skillName);
+  if (!section) return [];
+  const base = section.tracks[category] ?? [];
+  if (category === "KET" || category === "PET") {
+    const fromYoungLearners = (section.tracks["Young Learners"] ?? [])
+      .filter((r) => r.subheading === category)
+      .map((r) => ({ ...r, subheading: undefined }));
+    return [...base, ...fromYoungLearners];
+  }
+  return base;
 }
 
-/** first ready row in a section, scanning tracks in TRACK_ORDER — used as the default preview */
-function findDefaultSelection(section: SkillSection): Selection | null {
-  for (const track of TRACK_ORDER) {
-    const row = (section.tracks[track] ?? []).find((r) => r.ready);
-    if (row) return { track, row };
+/** first ready row across skills (in skills array order) for a category — used as the default preview */
+function findDefaultRow(category: TrackName): ResourceRow | null {
+  for (const skillName of SKILL_NAMES) {
+    const row = getRows(category, skillName).find((r) => r.ready);
+    if (row) return row;
   }
   return null;
 }
@@ -210,19 +217,23 @@ const pillBase =
   "text-xs font-semibold uppercase tracking-wide rounded-full border px-3 py-1.5 transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]";
 
 export default function Resources() {
-  const [activeSkill, setActiveSkill] = useState(skills[0].skill);
-  const [activeTrack, setActiveTrack] = useState<TrackName | "All">("All");
-  const [selected, setSelected] = useState<Selection | null>(() => findDefaultSelection(skills[0]));
+  const [activeCategory, setActiveCategory] = useState<TrackName>(TRACK_ORDER[0]);
+  const [activeSkillName, setActiveSkillName] = useState(SKILL_NAMES[0]);
+  const [selected, setSelected] = useState<ResourceRow | null>(() => findDefaultRow(TRACK_ORDER[0]));
 
-  const section = skills.find((s) => s.skill === activeSkill) ?? skills[0];
-  const tracksToRender = getTracksToRender(section);
-  const visibleTracks = activeTrack === "All" ? tracksToRender : tracksToRender.filter((t) => t === activeTrack);
+  const rows = getRows(activeCategory, activeSkillName);
 
-  function handleSkillChange(skill: string) {
-    const next = skills.find((s) => s.skill === skill);
-    setActiveSkill(skill);
-    setActiveTrack("All");
-    setSelected(next ? findDefaultSelection(next) : null);
+  function handleCategoryChange(category: string) {
+    const c = category as TrackName;
+    setActiveCategory(c);
+    const nextRows = getRows(c, activeSkillName);
+    setSelected(nextRows.find((r) => r.ready) ?? findDefaultRow(c));
+  }
+
+  function handleSkillChange(skillName: string) {
+    setActiveSkillName(skillName);
+    const nextRows = getRows(activeCategory, skillName);
+    setSelected(nextRows.find((r) => r.ready) ?? null);
   }
 
   function renderPreview(heightClass: string) {
@@ -240,14 +251,14 @@ export default function Resources() {
       );
     }
 
-    if (!selected.row.ready) {
+    if (!selected.ready) {
       return (
         <Empty className={`${heightClass} rounded-xl border-2 border-dashed border-gray-200`}>
           <EmptyHeader>
-            <EmptyMedia variant="icon" style={{ background: "#F4F1EC", color: TRACK_ACCENT[selected.track] }}>
+            <EmptyMedia variant="icon" style={{ background: "#F4F1EC", color: TRACK_ACCENT[activeCategory] }}>
               <Clock />
             </EmptyMedia>
-            <EmptyTitle>{selected.row.title}</EmptyTitle>
+            <EmptyTitle>{selected.title}</EmptyTitle>
             <EmptyDescription>
               This one's still in the works — check back soon, or{" "}
               <a href="/contact">book a free diagnostic</a> in the meantime.
@@ -265,7 +276,7 @@ export default function Resources() {
           </div>
         }
       >
-        <PdfPreview key={selected.row.href} src={selected.row.href} title={selected.row.title} className={heightClass} />
+        <PdfPreview key={selected.href} src={selected.href} title={selected.title} className={heightClass} />
       </Suspense>
     );
   }
@@ -288,168 +299,134 @@ export default function Resources() {
           Free printable resources — organised by exam and skill. Pick a section, preview a resource, download what you need.
         </p>
 
-        <Tabs
-          value={activeSkill}
-          onValueChange={handleSkillChange}
-          orientation="vertical"
-          className="flex-col lg:flex-row lg:items-start gap-6 lg:gap-8"
-        >
-          <TabsList className="flex h-auto w-full flex-row items-stretch justify-start gap-1 overflow-x-auto rounded-lg bg-gray-50 p-1 lg:w-56 lg:flex-shrink-0 lg:flex-col lg:sticky lg:top-28">
-            {skills.map((s) => (
+        {/* categories on top — the primary exam-program navigation */}
+        <Tabs value={activeCategory} onValueChange={handleCategoryChange}>
+          <TabsList className="flex h-auto w-full flex-wrap items-stretch justify-center gap-1 rounded-lg bg-gray-50 p-1 sm:justify-start">
+            {TRACK_ORDER.map((t) => (
               <TabsTrigger
-                key={s.skill}
-                value={s.skill}
-                className="h-auto flex-shrink-0 justify-start whitespace-nowrap rounded-md px-3 py-2 text-left text-sm font-medium text-gray-600 transition-colors motion-reduce:transition-none hover:bg-gray-200 data-[state=active]:bg-[#1F3A5F] data-[state=active]:text-white data-[state=active]:shadow-none data-[state=active]:hover:bg-[#1F3A5F] lg:w-full"
+                key={t}
+                value={t}
+                className="h-auto flex-shrink-0 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-gray-600 transition-colors motion-reduce:transition-none hover:bg-gray-200 data-[state=active]:text-white data-[state=active]:shadow-none"
+                style={activeCategory === t ? { backgroundColor: TRACK_ACCENT[t] } : undefined}
               >
-                {s.skill}
+                {t}
               </TabsTrigger>
             ))}
           </TabsList>
 
-          <TabsContent value={activeSkill} className="min-w-0 flex-1">
-            <div className="lg:grid lg:grid-cols-[minmax(0,360px)_1fr] lg:gap-8 lg:items-start">
-              {/* preview — directly under the skill tabs on mobile (order-1); docked to the
-                  right column on desktop (lg:order-2) */}
-              <div className="order-1 mb-8 lg:order-2 lg:mb-0 lg:sticky lg:top-28">
-                {selected?.row.ready ? (
-                  <div className="border border-gray-200 rounded-xl overflow-hidden bg-white">
-                    <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between gap-4">
-                      <div className="min-w-0">
-                        <p className="font-medium text-gray-900 truncate">{selected.row.title}</p>
-                        <p className="text-sm text-gray-400 truncate">{selected.row.note}</p>
-                      </div>
-                      <a
-                        href={selected.row.href}
-                        download
-                        className="flex-shrink-0 text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
-                        style={{ color: "#1F3A5F" }}
-                      >
-                        Download
-                      </a>
-                    </div>
-                    {renderPreview("h-[50vh] lg:h-[70vh]")}
-                  </div>
-                ) : (
-                  renderPreview("h-[50vh] lg:h-[70vh]")
-                )}
-              </div>
-
-              <div className="order-2 lg:order-1">
-            <div className="mb-6 flex flex-wrap gap-2">
-              <button
-                onClick={() => setActiveTrack("All")}
-                className={pillBase}
-                style={
-                  activeTrack === "All"
-                    ? { background: "#1F3A5F", color: "#fff", borderColor: "#1F3A5F" }
-                    : { color: "#1F3A5F", borderColor: "#e5e7eb" }
-                }
-              >
-                All
-              </button>
-              {tracksToRender.map((t) => (
+          <TabsContent value={activeCategory}>
+            {/* skills under the categories — secondary navigation */}
+            <div className="mb-6 mt-4 flex flex-wrap justify-center gap-2 sm:justify-start">
+              {SKILL_NAMES.map((skillName) => (
                 <button
-                  key={t}
-                  onClick={() => setActiveTrack(t)}
+                  key={skillName}
+                  onClick={() => handleSkillChange(skillName)}
                   className={pillBase}
                   style={
-                    activeTrack === t
-                      ? { background: TRACK_ACCENT[t], color: "#fff", borderColor: TRACK_ACCENT[t] }
-                      : { color: TRACK_ACCENT[t], borderColor: "#e5e7eb" }
+                    activeSkillName === skillName
+                      ? { background: "#1F3A5F", color: "#fff", borderColor: "#1F3A5F" }
+                      : { color: "#1F3A5F", borderColor: "#e5e7eb" }
                   }
                 >
-                  {t}
+                  {skillName}
                 </button>
               ))}
             </div>
 
-              <div className="space-y-8 lg:max-h-[70vh] lg:overflow-y-auto lg:pr-4">
-                {visibleTracks.map((trackName) => {
-                  const rows = section.tracks[trackName] ?? [];
-                  return (
-                    <div key={trackName}>
-                      <h3
-                        className="text-xs font-semibold uppercase tracking-widest mb-3"
-                        style={{ color: TRACK_ACCENT[trackName] }}
-                      >
-                        {trackName}
-                      </h3>
-
-                      {rows.length === 0 ? (
-                        <p className="py-2 text-sm text-gray-300">Coming soon</p>
-                      ) : (
-                        groupBySubheading(rows).map((segment, si) => (
-                          <div key={si} className={si > 0 ? "mt-5" : undefined}>
-                            {segment.subheading && (
-                              <h4 className="text-[11px] font-semibold uppercase tracking-wide text-gray-400 mb-2">
-                                {segment.subheading}
-                              </h4>
-                            )}
-                            <ul>
-                              {segment.rows.map((row, i) => {
-                                const isSelected = selected?.track === trackName && selected.row.title === row.title;
-                                return (
-                                  <li
-                                    key={row.title}
-                                    className={i < segment.rows.length - 1 ? "border-b border-gray-100" : undefined}
-                                  >
-                                    <button
-                                      onClick={() => setSelected({ track: trackName, row })}
-                                      aria-pressed={isSelected}
-                                      className={`w-full flex items-start justify-between gap-6 -mx-2 px-2 py-2 rounded-md text-left transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F] ${
-                                        isSelected ? "bg-gray-50" : "hover:bg-gray-50"
-                                      }`}
-                                    >
-                                      <span className="flex-1 min-w-0">
-                                        <span
-                                          className="font-medium leading-snug block"
-                                          style={{ color: isSelected ? "#1F3A5F" : "#111827" }}
-                                        >
-                                          {row.title}
-                                        </span>
-                                        <span className="text-sm text-gray-400">{row.note}</span>
-                                      </span>
-                                      <span className="flex-shrink-0 pt-0.5 text-sm font-medium">
-                                        {row.ready ? (
-                                          <span style={{ color: "#1F3A5F" }}>View</span>
-                                        ) : (
-                                          <span className="text-gray-300">Coming soon</span>
-                                        )}
-                                      </span>
-                                    </button>
-                                    {row.ready && (
-                                      <div className="flex items-center gap-4 px-2 pb-2 -mt-1">
-                                        <a
-                                          href={row.href}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          className="text-xs font-medium text-gray-400 hover:text-gray-600 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
-                                        >
-                                          Preview
-                                        </a>
-                                        <a
-                                          href={row.href}
-                                          download
-                                          className="text-xs font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
-                                          style={{ color: "#1F3A5F" }}
-                                        >
-                                          Download PDF
-                                        </a>
-                                      </div>
-                                    )}
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          </div>
-                        ))
-                      )}
+            {/* preview — directly under the tabs, auto-displayed, no click/dialog needed */}
+            <div className="mb-8">
+              {selected?.ready ? (
+                <div className="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                  <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between gap-4">
+                    <div className="min-w-0">
+                      <p className="font-medium text-gray-900 truncate">{selected.title}</p>
+                      <p className="text-sm text-gray-400 truncate">{selected.note}</p>
                     </div>
-                  );
-                })}
-              </div>
-              </div>
+                    <a
+                      href={selected.href}
+                      download
+                      className="flex-shrink-0 text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
+                      style={{ color: "#1F3A5F" }}
+                    >
+                      Download
+                    </a>
+                  </div>
+                  {renderPreview("h-[50vh] lg:h-[70vh]")}
+                </div>
+              ) : (
+                renderPreview("h-[50vh] lg:h-[70vh]")
+              )}
             </div>
+
+            {rows.length === 0 ? (
+              <p className="py-2 text-sm text-gray-300">Coming soon</p>
+            ) : (
+              groupBySubheading(rows).map((segment, si) => (
+                <div key={si} className={si > 0 ? "mt-5" : undefined}>
+                  {segment.subheading && (
+                    <h4 className="text-[11px] font-semibold uppercase tracking-wide text-gray-400 mb-2">
+                      {segment.subheading}
+                    </h4>
+                  )}
+                  <ul>
+                    {segment.rows.map((row, i) => {
+                      const isSelected = selected?.title === row.title;
+                      return (
+                        <li
+                          key={row.title}
+                          className={i < segment.rows.length - 1 ? "border-b border-gray-100" : undefined}
+                        >
+                          <button
+                            onClick={() => setSelected(row)}
+                            aria-pressed={isSelected}
+                            className={`w-full flex items-start justify-between gap-6 -mx-2 px-2 py-2 rounded-md text-left transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F] ${
+                              isSelected ? "bg-gray-50" : "hover:bg-gray-50"
+                            }`}
+                          >
+                            <span className="flex-1 min-w-0">
+                              <span
+                                className="font-medium leading-snug block"
+                                style={{ color: isSelected ? "#1F3A5F" : "#111827" }}
+                              >
+                                {row.title}
+                              </span>
+                              <span className="text-sm text-gray-400">{row.note}</span>
+                            </span>
+                            <span className="flex-shrink-0 pt-0.5 text-sm font-medium">
+                              {row.ready ? (
+                                <span style={{ color: "#1F3A5F" }}>View</span>
+                              ) : (
+                                <span className="text-gray-300">Coming soon</span>
+                              )}
+                            </span>
+                          </button>
+                          {row.ready && (
+                            <div className="flex items-center gap-4 px-2 pb-2 -mt-1">
+                              <a
+                                href={row.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-xs font-medium text-gray-400 hover:text-gray-600 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
+                              >
+                                Preview
+                              </a>
+                              <a
+                                href={row.href}
+                                download
+                                className="text-xs font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
+                                style={{ color: "#1F3A5F" }}
+                              >
+                                Download PDF
+                              </a>
+                            </div>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              ))
+            )}
           </TabsContent>
         </Tabs>
 
