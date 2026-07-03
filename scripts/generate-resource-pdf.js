@@ -19,8 +19,10 @@ import { join } from "path";
 const OUT_DIR = "public/resources";
 const LOGO_PATH = "public/soundready-logo-transparent.png";
 
-const ACCENT = "#B85C38"; // terracotta — shared across the whole readiness series
-const NAVY = "#1F3A5F";
+const ACCENT = "#B8941F"; // straw/gold — shared across the whole readiness series
+const ACCENT_TINT = "#F8EFC9"; // pale straw background tint
+const ACCENT_BORDER = "#E6D89A"; // straw-tinted border
+const NAVY = "#1F3A5F"; // header band + level tag
 
 // ── shared HTML template ────────────────────────────────────────
 function renderHtml({ levelTag, title, titleZh, quickFacts, intro, introZh, items, isTransition, logoDataUri }) {
@@ -54,7 +56,7 @@ function renderHtml({ levelTag, title, titleZh, quickFacts, intro, introZh, item
     -webkit-font-smoothing: antialiased;
   }
 
-  .topbar { height: 5mm; background: linear-gradient(90deg, ${ACCENT} 0%, #CC7A54 55%, ${NAVY} 100%); }
+  .topbar { height: 5mm; background: linear-gradient(90deg, ${NAVY} 0%, #2E4F76 55%, ${NAVY} 100%); }
 
   .page { padding: 8mm 16mm 6mm; }
 
@@ -67,14 +69,14 @@ function renderHtml({ levelTag, title, titleZh, quickFacts, intro, introZh, item
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #fff;
-    background: ${ACCENT};
+    background: ${NAVY};
     border-radius: 999px;
     padding: 5px 12px;
   }
 
   .hero {
-    background: linear-gradient(135deg, #FFFFFF 0%, #FBEFE7 100%);
-    border: 1px solid #F1DFCF;
+    background: linear-gradient(135deg, #FFFFFF 0%, ${ACCENT_TINT} 100%);
+    border: 1px solid ${ACCENT_BORDER};
     border-radius: 14px;
     padding: 5mm 8mm;
     margin-bottom: 4mm;
@@ -103,7 +105,7 @@ function renderHtml({ levelTag, title, titleZh, quickFacts, intro, introZh, item
     font-weight: 500;
     color: ${NAVY};
     background: #fff;
-    border: 1px solid #EADFD2;
+    border: 1px solid ${ACCENT_BORDER};
     border-radius: 999px;
     padding: 5px 12px;
     margin-bottom: 4mm;
@@ -140,7 +142,7 @@ function renderHtml({ levelTag, title, titleZh, quickFacts, intro, introZh, item
     height: 18px;
     margin-top: 1px;
     border-radius: 999px;
-    background: #FBEFE7;
+    background: ${ACCENT_TINT};
     color: ${ACCENT};
     font-size: 9.5px;
     font-weight: 700;
@@ -173,8 +175,8 @@ function renderHtml({ levelTag, title, titleZh, quickFacts, intro, introZh, item
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    background: linear-gradient(135deg, #FBEFE7 0%, #F6F0E6 100%);
-    border: 1px solid #F1DFCF;
+    background: linear-gradient(135deg, ${ACCENT_TINT} 0%, #F6F0E6 100%);
+    border: 1px solid ${ACCENT_BORDER};
     border-radius: 12px;
     padding: 4mm 8mm;
     margin-bottom: 3mm;
