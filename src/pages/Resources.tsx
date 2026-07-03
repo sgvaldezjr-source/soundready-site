@@ -249,16 +249,26 @@ export default function Resources() {
                                   </span>
                                   <span className="text-sm text-gray-400">{row.note}</span>
                                 </div>
-                                <div className="flex-shrink-0 pt-0.5">
+                                <div className="flex-shrink-0 pt-0.5 flex items-center gap-4">
                                   {row.ready ? (
-                                    <a
-                                      href={row.href}
-                                      download
-                                      className="text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
-                                      style={{ color: "#1F3A5F" }}
-                                    >
-                                      Download PDF
-                                    </a>
+                                    <>
+                                      <a
+                                        href={row.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-sm font-medium text-gray-400 hover:text-gray-600 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
+                                      >
+                                        Preview
+                                      </a>
+                                      <a
+                                        href={row.href}
+                                        download
+                                        className="text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
+                                        style={{ color: "#1F3A5F" }}
+                                      >
+                                        Download PDF
+                                      </a>
+                                    </>
                                   ) : (
                                     <span className="text-sm text-gray-300">Coming soon</span>
                                   )}
