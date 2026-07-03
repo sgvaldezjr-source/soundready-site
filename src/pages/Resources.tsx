@@ -6,6 +6,8 @@ interface ResourceRow {
   note: string;
   href: string;
   ready: boolean;
+  /** optional sub-grouping label rendered above consecutive rows that share it */
+  subheading?: string;
 }
 
 type TrackName = "IELTS" | "KET" | "PET" | "Young Learners";
@@ -27,6 +29,63 @@ const TRACK_ACCENT: Record<TrackName, string> = {
 };
 
 const skills: SkillSection[] = [
+  {
+    skill: "Getting started",
+    alwaysShowAllTracks: false,
+    tracks: {
+      IELTS: [
+        {
+          title: "Why your IELTS score is stuck — self-check",
+          note: "A 5-point printable audit of how you're preparing",
+          href: "/resources/ielts-score-stuck-checklist.pdf",
+          ready: true,
+        },
+      ],
+      "Young Learners": [
+        {
+          title: "Is your child ready for Movers?",
+          note: "Parent readiness checklist",
+          href: "",
+          ready: false,
+          subheading: "Movers",
+        },
+        {
+          title: "Is your child ready for KET?",
+          note: "Skill-by-skill parent check",
+          href: "",
+          ready: false,
+          subheading: "KET",
+        },
+        {
+          title: "Complete KET Course Book",
+          note: "Unit Maps",
+          href: "/resources/ket-complete-course-book.pdf",
+          ready: true,
+          subheading: "KET",
+        },
+        {
+          title: "Is your child ready for PET?",
+          note: "Skill-by-skill parent check",
+          href: "",
+          ready: false,
+          subheading: "PET",
+        },
+        {
+          title: "Complete PET Course Book",
+          note: "Unit Maps",
+          href: "/resources/pet-complete-course-book.pdf",
+          ready: true,
+          subheading: "PET",
+        },
+        {
+          title: "KET → PET: what changes",
+          note: "Parent guide",
+          href: "",
+          ready: false,
+        },
+      ],
+    },
+  },
   {
     skill: "Speaking",
     alwaysShowAllTracks: true,
@@ -107,57 +166,20 @@ const skills: SkillSection[] = [
       "Young Learners": [],
     },
   },
-  {
-    skill: "Getting started",
-    alwaysShowAllTracks: false,
-    tracks: {
-      IELTS: [
-        {
-          title: "Why your IELTS score is stuck — self-check",
-          note: "A 5-point printable audit of how you're preparing",
-          href: "/resources/ielts-score-stuck-checklist.pdf",
-          ready: true,
-        },
-      ],
-      KET: [
-        {
-          title: "Complete KET Course Book",
-          note: "Unit Maps",
-          href: "/resources/ket-complete-course-book.pdf",
-          ready: true,
-        },
-      ],
-      PET: [
-        {
-          title: "Complete PET Course Book",
-          note: "Unit Maps",
-          href: "/resources/pet-complete-course-book.pdf",
-          ready: true,
-        },
-      ],
-      "Young Learners": [
-        {
-          title: "Is your child ready for Movers?",
-          note: "Parent readiness checklist",
-          href: "",
-          ready: false,
-        },
-        {
-          title: "Is your child ready for KET?",
-          note: "Skill-by-skill parent check",
-          href: "",
-          ready: false,
-        },
-        {
-          title: "KET → PET: what changes",
-          note: "Parent guide",
-          href: "",
-          ready: false,
-        },
-      ],
-    },
-  },
 ];
+
+function groupBySubheading(rows: ResourceRow[]): { subheading?: string; rows: ResourceRow[] }[] {
+  const segments: { subheading?: string; rows: ResourceRow[] }[] = [];
+  for (const row of rows) {
+    const last = segments[segments.length - 1];
+    if (last && last.subheading === row.subheading) {
+      last.rows.push(row);
+    } else {
+      segments.push({ subheading: row.subheading, rows: [row] });
+    }
+  }
+  return segments;
+}
 
 export default function Resources() {
   return (
@@ -206,37 +228,46 @@ export default function Resources() {
                     {rows.length === 0 ? (
                       <p className="py-2 text-sm text-gray-300">Coming soon</p>
                     ) : (
-                      <ul>
-                        {rows.map((row, i) => (
-                          <li
-                            key={row.title}
-                            className={`flex items-start justify-between gap-6 py-3${
-                              i < rows.length - 1 ? " border-b border-gray-100" : ""
-                            }`}
-                          >
-                            <div className="flex-1 min-w-0">
-                              <span className="text-gray-900 font-medium leading-snug block">
-                                {row.title}
-                              </span>
-                              <span className="text-sm text-gray-400">{row.note}</span>
-                            </div>
-                            <div className="flex-shrink-0 pt-0.5">
-                              {row.ready ? (
-                                <a
-                                  href={row.href}
-                                  download
-                                  className="text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
-                                  style={{ color: "#1F3A5F" }}
-                                >
-                                  Download PDF
-                                </a>
-                              ) : (
-                                <span className="text-sm text-gray-300">Coming soon</span>
-                              )}
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
+                      groupBySubheading(rows).map((segment, si) => (
+                        <div key={si} className={si > 0 ? "mt-5" : undefined}>
+                          {segment.subheading && (
+                            <h4 className="text-[11px] font-semibold uppercase tracking-wide text-gray-400 mb-2">
+                              {segment.subheading}
+                            </h4>
+                          )}
+                          <ul>
+                            {segment.rows.map((row, i) => (
+                              <li
+                                key={row.title}
+                                className={`flex items-start justify-between gap-6 py-3${
+                                  i < segment.rows.length - 1 ? " border-b border-gray-100" : ""
+                                }`}
+                              >
+                                <div className="flex-1 min-w-0">
+                                  <span className="text-gray-900 font-medium leading-snug block">
+                                    {row.title}
+                                  </span>
+                                  <span className="text-sm text-gray-400">{row.note}</span>
+                                </div>
+                                <div className="flex-shrink-0 pt-0.5">
+                                  {row.ready ? (
+                                    <a
+                                      href={row.href}
+                                      download
+                                      className="text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
+                                      style={{ color: "#1F3A5F" }}
+                                    >
+                                      Download PDF
+                                    </a>
+                                  ) : (
+                                    <span className="text-sm text-gray-300">Coming soon</span>
+                                  )}
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))
                     )}
                   </div>
                 );
