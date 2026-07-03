@@ -26,9 +26,9 @@ const NAVY = "#1F3A5F";
 function renderHtml({ levelTag, title, titleZh, quickFacts, intro, introZh, items, isTransition, logoDataUri }) {
   const checklistHtml = items
     .map(
-      (item) => `
+      (item, i) => `
         <li class="item">
-          ${isTransition ? `<span class="bullet"></span>` : `<span class="box"></span>`}
+          ${isTransition ? `<span class="bullet"></span>` : `<span class="num">${i + 1}</span><span class="box"></span>`}
           <div class="item-text">
             <p class="en">${item.en}</p>
             <p class="zh">${item.zh}</p>
@@ -46,34 +46,46 @@ function renderHtml({ levelTag, title, titleZh, quickFacts, intro, introZh, item
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   * { box-sizing: border-box; }
-  body {
+  html, body {
     margin: 0;
+    background: #FBF8F4;
     font-family: 'Inter', 'Noto Sans SC', sans-serif;
     color: #24303f;
     -webkit-font-smoothing: antialiased;
   }
-  .page { padding: 14mm 16mm 12mm; }
 
-  .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6mm; }
+  .topbar { height: 5mm; background: linear-gradient(90deg, ${ACCENT} 0%, #CC7A54 55%, ${NAVY} 100%); }
+
+  .page { padding: 8mm 16mm 6mm; }
+
+  .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5mm; }
   .logo { height: 34px; }
   .level-tag {
     font-family: 'Inter', sans-serif;
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: ${ACCENT};
-    border: 1px solid ${ACCENT};
+    color: #fff;
+    background: ${ACCENT};
     border-radius: 999px;
-    padding: 4px 10px;
+    padding: 5px 12px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FBEFE7 100%);
+    border: 1px solid #F1DFCF;
+    border-radius: 14px;
+    padding: 5mm 8mm;
+    margin-bottom: 4mm;
   }
 
   h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 27px;
     color: ${NAVY};
-    margin: 0 0 2px;
+    margin: 0 0 3px;
     line-height: 1.25;
   }
   h1.zh {
@@ -81,38 +93,68 @@ function renderHtml({ levelTag, title, titleZh, quickFacts, intro, introZh, item
     font-weight: 600;
     font-size: 17px;
     color: ${NAVY};
-    margin: 0 0 5mm;
+    margin: 0 0 4mm;
   }
+  .rule { width: 42px; height: 3px; border-radius: 999px; background: ${ACCENT}; margin: 0 0 4mm; }
 
   .quick-facts {
-    font-size: 10.5px;
-    color: #6b7686;
-    margin-bottom: 5mm;
-    padding-bottom: 4mm;
-    border-bottom: 1px solid #eceef1;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    color: ${NAVY};
+    background: #fff;
+    border: 1px solid #EADFD2;
+    border-radius: 999px;
+    padding: 5px 12px;
+    margin-bottom: 4mm;
   }
 
-  .intro { margin-bottom: 6mm; }
   .intro .en { font-size: 12px; line-height: 1.55; margin: 0 0 3px; }
   .intro .zh { font-family: 'Noto Sans SC', sans-serif; font-size: 11px; line-height: 1.7; color: #565f6c; margin: 0; }
 
-  ul.checklist { list-style: none; margin: 0 0 7mm; padding: 0; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: ${ACCENT};
+    margin: 0 0 2.5mm;
+  }
+
+  ul.checklist { list-style: none; margin: 0 0 4mm; padding: 0; }
   .item {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid #f1efec;
+    background: #fff;
+    border: 1px solid #EFEAE3;
+    border-radius: 10px;
+    padding: 6px 12px;
+    margin-bottom: 4px;
   }
-  .item:last-child { border-bottom: none; }
+  .item:last-child { margin-bottom: 0; }
 
+  .num {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    border-radius: 999px;
+    background: #FBEFE7;
+    color: ${ACCENT};
+    font-size: 9.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .box {
     flex-shrink: 0;
     width: 15px;
     height: 15px;
     margin-top: 2px;
     border: 1.6px solid ${ACCENT};
-    border-radius: 3px;
+    border-radius: 4px;
   }
   .bullet {
     flex-shrink: 0;
@@ -126,61 +168,68 @@ function renderHtml({ levelTag, title, titleZh, quickFacts, intro, introZh, item
   .item-text .en { font-size: 12px; font-weight: 500; margin: 0 0 2px; line-height: 1.45; }
   .item-text .zh { font-family: 'Noto Sans SC', sans-serif; font-size: 10.5px; color: #6b7686; margin: 0; line-height: 1.6; }
 
-  .footer {
-    margin-top: 8mm;
-    padding-top: 5mm;
-    border-top: 1px solid #eceef1;
+  .cta-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: linear-gradient(135deg, #FBEFE7 0%, #F6F0E6 100%);
+    border: 1px solid #F1DFCF;
+    border-radius: 12px;
+    padding: 4mm 8mm;
+    margin-bottom: 3mm;
   }
-  .disclaimer { font-size: 9.5px; color: #97a0ab; margin: 0 0 2px; }
-  .disclaimer.zh { font-family: 'Noto Sans SC', sans-serif; font-size: 9px; color: #97a0ab; margin: 0 0 5mm; }
-
-  .cta { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .cta .text .en { font-size: 11.5px; font-weight: 600; color: ${NAVY}; margin: 0 0 1px; }
-  .cta .text .zh { font-family: 'Noto Sans SC', sans-serif; font-size: 10.5px; color: #565f6c; margin: 0; }
-  .cta .link {
+  .cta-panel .text .en { font-size: 12px; font-weight: 700; color: ${NAVY}; margin: 0 0 2px; }
+  .cta-panel .text .zh { font-family: 'Noto Sans SC', sans-serif; font-size: 10.5px; color: #565f6c; margin: 0; }
+  .cta-panel .link {
     flex-shrink: 0;
     font-size: 11px;
     font-weight: 600;
     color: #fff;
     background: ${NAVY};
-    padding: 8px 16px;
-    border-radius: 6px;
+    padding: 9px 18px;
+    border-radius: 999px;
     white-space: nowrap;
   }
+
+  .disclaimer { font-size: 9px; color: #a3acb6; text-align: center; margin: 0 0 2px; }
+  .disclaimer.zh { font-family: 'Noto Sans SC', sans-serif; font-size: 8.5px; color: #a3acb6; text-align: center; margin: 0; }
 </style>
 </head>
 <body>
+  <div class="topbar"></div>
   <div class="page">
     <div class="header">
       <img class="logo" src="${logoDataUri}" />
       <span class="level-tag">${levelTag}</span>
     </div>
 
-    <h1>${title}</h1>
-    <h1 class="zh">${titleZh}</h1>
-
-    <p class="quick-facts">${quickFacts}</p>
-
-    <div class="intro">
-      <p class="en">${intro}</p>
-      <p class="zh">${introZh}</p>
+    <div class="hero">
+      <h1>${title}</h1>
+      <h1 class="zh">${titleZh}</h1>
+      <div class="rule"></div>
+      <span class="quick-facts">${quickFacts}</span>
+      <div class="intro">
+        <p class="en">${intro}</p>
+        <p class="zh">${introZh}</p>
+      </div>
     </div>
 
+    <p class="section-label">${isTransition ? "What's new" : "Readiness signs to look for"}</p>
     <ul class="checklist">
       ${checklistHtml}
     </ul>
 
-    <div class="footer">
-      <p class="disclaimer">This is a general guide based on what we typically see in students, not a formal assessment — every child develops at their own pace.</p>
-      <p class="disclaimer zh">本指南基于我们对学生的一般观察经验，并非正式的水平测试——每个孩子的成长节奏都不同。</p>
-      <div class="cta">
-        <div class="text">
-          <p class="en">Want a second opinion from a tutor?</p>
-          <p class="zh">想听听老师的专业意见？预约免费15分钟诊断沟通。</p>
-        </div>
-        <span class="link">sound-ready.com/contact</span>
+    <div class="cta-panel">
+      <div class="text">
+        <p class="en">Want a second opinion from a tutor?</p>
+        <p class="zh">想听听老师的专业意见？预约免费15分钟诊断沟通。</p>
       </div>
+      <span class="link">sound-ready.com/contact</span>
     </div>
+
+    <p class="disclaimer">This is a general guide based on what we typically see in students, not a formal assessment — every child develops at their own pace.</p>
+    <p class="disclaimer zh">本指南基于我们对学生的一般观察经验，并非正式的水平测试——每个孩子的成长节奏都不同。</p>
   </div>
 </body>
 </html>`;
