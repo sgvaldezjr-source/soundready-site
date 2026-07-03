@@ -4,6 +4,8 @@ import { FileText, Clock } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Empty, EmptyHeader, EmptyMedia, EmptyTitle, EmptyDescription } from "@/components/ui/empty";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { useIsMobile } from "@/hooks/useMobile";
 
 interface ResourceRow {
   title: string;
@@ -209,6 +211,8 @@ export default function Resources() {
   const [activeSkill, setActiveSkill] = useState(skills[0].skill);
   const [activeTrack, setActiveTrack] = useState<TrackName | "All">("All");
   const [selected, setSelected] = useState<Selection | null>(() => findDefaultSelection(skills[0]));
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const isMobile = useIsMobile(1024); // matches the lg: breakpoint used for the desktop pane layout
 
   const section = skills.find((s) => s.skill === activeSkill) ?? skills[0];
   const tracksToRender = getTracksToRender(section);
@@ -219,6 +223,55 @@ export default function Resources() {
     setActiveSkill(skill);
     setActiveTrack("All");
     setSelected(next ? findDefaultSelection(next) : null);
+  }
+
+  function selectRow(track: TrackName, row: ResourceRow) {
+    setSelected({ track, row });
+    // on mobile there's no room for an inline pane, so open a fullscreen preview instead
+    if (isMobile) setPreviewOpen(true);
+  }
+
+  function renderPreview(heightClass: string) {
+    if (!selected) {
+      return (
+        <Empty className={`${heightClass} rounded-xl border-2 border-dashed border-gray-200`}>
+          <EmptyHeader>
+            <EmptyMedia variant="icon" style={{ background: "#F4F1EC", color: "#1F3A5F" }}>
+              <FileText />
+            </EmptyMedia>
+            <EmptyTitle>Nothing to preview yet</EmptyTitle>
+            <EmptyDescription>Resources for this section are still on the way.</EmptyDescription>
+          </EmptyHeader>
+        </Empty>
+      );
+    }
+
+    if (!selected.row.ready) {
+      return (
+        <Empty className={`${heightClass} rounded-xl border-2 border-dashed border-gray-200`}>
+          <EmptyHeader>
+            <EmptyMedia variant="icon" style={{ background: "#F4F1EC", color: TRACK_ACCENT[selected.track] }}>
+              <Clock />
+            </EmptyMedia>
+            <EmptyTitle>{selected.row.title}</EmptyTitle>
+            <EmptyDescription>
+              This one's still in the works — check back soon, or{" "}
+              <a href="/contact">book a free diagnostic</a> in the meantime.
+            </EmptyDescription>
+          </EmptyHeader>
+        </Empty>
+      );
+    }
+
+    return (
+      <iframe
+        key={selected.row.href}
+        src={selected.row.href}
+        title={selected.row.title}
+        loading="lazy"
+        className={`w-full ${heightClass} block`}
+      />
+    );
   }
 
   return (
@@ -318,7 +371,7 @@ export default function Resources() {
                                     className={i < segment.rows.length - 1 ? "border-b border-gray-100" : undefined}
                                   >
                                     <button
-                                      onClick={() => setSelected({ track: trackName, row })}
+                                      onClick={() => selectRow(trackName, row)}
                                       aria-pressed={isSelected}
                                       className={`w-full flex items-start justify-between gap-6 -mx-2 px-2 py-2 rounded-md text-left transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F] ${
                                         isSelected ? "bg-gray-50" : "hover:bg-gray-50"
@@ -373,64 +426,60 @@ export default function Resources() {
                 })}
               </div>
 
-              <div className="mt-8 lg:mt-0 lg:sticky lg:top-28">
-                {selected ? (
-                  selected.row.ready ? (
-                    <div className="border border-gray-200 rounded-xl overflow-hidden bg-white">
-                      <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between gap-4">
-                        <div className="min-w-0">
-                          <p className="font-medium text-gray-900 truncate">{selected.row.title}</p>
-                          <p className="text-sm text-gray-400 truncate">{selected.row.note}</p>
-                        </div>
-                        <a
-                          href={selected.row.href}
-                          download
-                          className="flex-shrink-0 text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
-                          style={{ color: "#1F3A5F" }}
-                        >
-                          Download
-                        </a>
+              {/* inline pane — desktop only; mobile uses the fullscreen dialog below instead */}
+              <div className="hidden lg:block lg:sticky lg:top-28">
+                {selected?.row.ready ? (
+                  <div className="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between gap-4">
+                      <div className="min-w-0">
+                        <p className="font-medium text-gray-900 truncate">{selected.row.title}</p>
+                        <p className="text-sm text-gray-400 truncate">{selected.row.note}</p>
                       </div>
-                      <iframe
-                        key={selected.row.href}
-                        src={selected.row.href}
-                        title={selected.row.title}
-                        loading="lazy"
-                        className="w-full h-[55vh] lg:h-[70vh] block"
-                      />
+                      <a
+                        href={selected.row.href}
+                        download
+                        className="flex-shrink-0 text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
+                        style={{ color: "#1F3A5F" }}
+                      >
+                        Download
+                      </a>
                     </div>
-                  ) : (
-                    <Empty className="h-[45vh] lg:h-[70vh] rounded-xl border-2 border-dashed border-gray-200">
-                      <EmptyHeader>
-                        <EmptyMedia
-                          variant="icon"
-                          style={{ background: "#F4F1EC", color: TRACK_ACCENT[selected.track] }}
-                        >
-                          <Clock />
-                        </EmptyMedia>
-                        <EmptyTitle>{selected.row.title}</EmptyTitle>
-                        <EmptyDescription>
-                          This one's still in the works — check back soon, or{" "}
-                          <a href="/contact">book a free diagnostic</a> in the meantime.
-                        </EmptyDescription>
-                      </EmptyHeader>
-                    </Empty>
-                  )
+                    {renderPreview("h-[70vh]")}
+                  </div>
                 ) : (
-                  <Empty className="h-[45vh] lg:h-[70vh] rounded-xl border-2 border-dashed border-gray-200">
-                    <EmptyHeader>
-                      <EmptyMedia variant="icon" style={{ background: "#F4F1EC", color: "#1F3A5F" }}>
-                        <FileText />
-                      </EmptyMedia>
-                      <EmptyTitle>Nothing to preview yet</EmptyTitle>
-                      <EmptyDescription>Resources for this section are still on the way.</EmptyDescription>
-                    </EmptyHeader>
-                  </Empty>
+                  renderPreview("h-[70vh]")
                 )}
               </div>
             </div>
           </TabsContent>
         </Tabs>
+
+        {/* fullscreen preview — mobile only, opened by tapping a resource row */}
+        <Dialog open={previewOpen && isMobile} onOpenChange={setPreviewOpen}>
+          <DialogContent
+            showCloseButton
+            className="flex h-[85vh] w-[calc(100%-1.5rem)] max-w-[calc(100%-1.5rem)] flex-col gap-0 overflow-hidden p-0 sm:max-w-[calc(100%-1.5rem)]"
+          >
+            <DialogTitle className="sr-only">{selected?.row.title ?? "Resource preview"}</DialogTitle>
+            <div className="flex items-center justify-between gap-4 border-b border-gray-100 px-4 py-3 pr-12">
+              <div className="min-w-0">
+                <p className="font-medium text-gray-900 truncate">{selected?.row.title}</p>
+                <p className="text-sm text-gray-400 truncate">{selected?.row.note}</p>
+              </div>
+              {selected?.row.ready && (
+                <a
+                  href={selected.row.href}
+                  download
+                  className="flex-shrink-0 text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F3A5F]"
+                  style={{ color: "#1F3A5F" }}
+                >
+                  Download
+                </a>
+              )}
+            </div>
+            <div className="min-h-0 flex-1">{renderPreview("h-full")}</div>
+          </DialogContent>
+        </Dialog>
 
         <div className="mt-12 pt-8 border-t border-gray-100 text-center">
           <a
