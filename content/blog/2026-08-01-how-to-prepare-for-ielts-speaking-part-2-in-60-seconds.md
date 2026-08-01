@@ -4,6 +4,7 @@ title: "How to Prepare for IELTS Speaking Part 2 in 60 Seconds"
 date: 2026-08-01
 author: Sound Ready
 excerpt: "You get just 60 seconds to prepare for IELTS Speaking Part 2. Here is the exact note-taking method to build a fluent, well-structured two-minute answer."
+cover: "https://raw.githubusercontent.com/sgvaldezjr-source/soundready-site/main/public/assets/hero-images/2026-08-01-speaking-part2-60-seconds-hero.jpg"
 ---
 
 > **Key Takeaways**
